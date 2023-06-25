@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div id="home">
+  <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+    <ng-template ngbSlide *ngFor="let slider of sliders">
+      <div class="carousel-img">
+        <img [src]="'../../../assets/img/'+ slider.img + '.png'" alt="Random slide" />
+      </div>
+      <div class="carousel-caption">
+        <h6>{{slider.type}}</h6>
+        <h2>{{slider.discount}}% DISCOUNT </h2>
+        <p>Use <b class="code">{{slider.code}}</b> promo code to get your discount for the books of <span>{{slider.category}}</span>.</p>
+        <span>*Valid until {{slider.valid_until}}</span>
+        <button class="custom-button" routerLink="{{slider.link}}">SHOP NOW</button>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

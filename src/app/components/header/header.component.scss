@@ -54,6 +54,7 @@
         }
       }
     }
+
   }
 
   .header-right {
@@ -112,5 +113,25 @@
         transform: translateY(100%);
       }
     }
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  #header {
+
+    .header-menu {
+      display: flex;
+
+      .dropdown-menu {
+        .dropdown-body {
+          li {
+            width: calc(100% / 2);
+          }
+        }
+
+      }
+    }
+
   }
 }

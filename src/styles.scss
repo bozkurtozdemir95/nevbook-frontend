@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+/* Importing Fonts. */
 @import './assets/fonts/Oswald/stylesheet.css';
 @import './assets/fonts/Poppins/stylesheet.css';
 @import './assets/fonts/Cropped/stylesheet.css';
+
+/* Importing custom theming scss files. */
 @import './assets/theme/variables.scss';
 @import './assets/theme/grid.scss';
 
@@ -103,4 +109,87 @@ h1, h2, h3, h4, h5, h6 {
   border: 0;
   padding: 0;
   box-shadow: none;
+}
+
+
+#home {
+  .carousel {
+    .carousel-caption {
+      left: 15%;
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: $text;
+      gap: $space * 1.5;
+      max-width: 40%;
+      text-align: left;
+
+      h6 {
+        font-weight: 600;
+        font-size: 13px;
+
+      }
+
+      h2 {
+        color: $title;
+        font-weight: 700;
+        font-size: 32px;
+        font-family: $title-font;
+      }
+
+      p {
+        span {
+          color: $title;
+          font-weight: 500;
+        }
+      }
+
+      span {
+        font-style: italic;
+        font-size: 12px;
+        margin-top: -5px;
+      }
+
+      .code {
+        color: $title;
+        font-weight: 700;
+        background: #fff;
+        font-size: 16px;
+        padding: 2px 15px;
+        box-shadow: $shadow-dark;
+      }
+
+      button {
+        margin-top: $space;
+      }
+    }
+  }
+}
+
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  background: $primary;
+  border: 0;
+  box-shadow: $shadow;
+  padding: $space $space * 3;
+  transition: all .25s ease 0s;
+
+  &:hover {
+    transform: translateY(1px);
+    background: $primary-hover;
+  }
+
+  &:active{
+    transform: translateY(2px);
+    background: $primary-dark;
+  }
 }

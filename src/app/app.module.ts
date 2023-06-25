@@ -15,6 +15,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { IconComponent } from './components/icon/icon.component';
+import {CommonModule} from "@angular/common";
+import {NgbCarousel, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,16 +36,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     IconComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbCarousel,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
