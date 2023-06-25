@@ -3,12 +3,15 @@
 #header {
   display: flex;
   align-items: center;
-  position: relative;
   z-index: 9999;
   margin-bottom: 0;
-  background: transparent;
   padding: $space * 2 0;
   box-shadow: $shadow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
 
   .header-left {
     display: flex;
@@ -224,7 +227,7 @@
 
     .dropdown-menu.show {
       position: fixed !important;
-      top: 72px !important;
+      top: 65px !important;
       left: 0 !important;
       transform: none !important;
       border-radius: 0;
