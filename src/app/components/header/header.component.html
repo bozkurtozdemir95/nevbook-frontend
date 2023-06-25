@@ -8,22 +8,16 @@
               <app-icon [icon]="'menu'"/>
             </button>
             <div ngbDropdownMenu aria-labelledby="mobile-menu">
-              <li routerLink="/">Home</li>
-              <li routerLink="/shop">Shop</li>
-              <li routerLink="/about">About</li>
-              <li routerLink="/contact">Contact</li>
+              <li [routerLink]="item.link" routerLinkActive="active" *ngFor="let item of menu">{{item.title}}</li>
             </div>
           </div>
         </div>
-        <div class="header-left">
+        <div class="header-left" routerLink="/">
           <div class="logo">NEVBOOK</div>
         </div>
         <div class="header-menu">
           <ul>
-            <li routerLink="/">Home</li>
-            <li routerLink="/shop">Shop</li>
-            <li routerLink="/about">About</li>
-            <li routerLink="/contact">Contact</li>
+            <li [routerLink]="item.link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" *ngFor="let item of menu">{{item.title}}</li>
           </ul>
         </div>
         <div class="header-right">

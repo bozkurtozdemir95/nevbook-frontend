@@ -17,6 +17,8 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { IconComponent } from './components/icon/icon.component';
 import {CommonModule} from "@angular/common";
 import {NgbCarousel, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -33,7 +35,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     ProductComponent,
     CheckoutComponent,
-    IconComponent
+    IconComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
