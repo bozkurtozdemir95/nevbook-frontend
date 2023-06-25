@@ -101,11 +101,6 @@
             content: none;
           }
 
-          ::ng-deep svg {
-            height: 30px;
-            max-width: 30px;
-            color: $title;
-          }
 
           span {
             position: absolute;
@@ -199,6 +194,7 @@
           img {
             width: 24px;
             height: auto;
+            min-width: 20px;
           }
         }
 
@@ -208,7 +204,7 @@
           box-shadow: $shadow-dark;
           padding: 0 !important;
 
-          li{
+          li {
             font-size: 13px;
             font-weight: 600;
             transition: all .25s ease 0s;
@@ -257,6 +253,21 @@
   #header {
     padding: $space 0;
 
+    .header-left {
+      .logo {
+        font-size: 28px;
+      }
+    }
+
+    .header-right {
+      gap: $space / 2;
+
+      ::ng-deep svg {
+        height: 20px;
+        max-width: 22px;
+      }
+    }
+
     .header-menu {
       display: none;
     }
@@ -272,6 +283,7 @@
       .dropdown-toggle {
         width: 30px;
         height: 30px;
+        margin-right: $space;
 
         &:after {
           content: none;
@@ -281,6 +293,17 @@
           height: 30px;
           max-width: 30px;
           color: $title;
+        }
+      }
+    }
+
+
+    .language-menu {
+      .dropdown {
+        .dropdown-toggle {
+          ::ng-deep svg {
+            display: none;
+          }
         }
       }
     }
