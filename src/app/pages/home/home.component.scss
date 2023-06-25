@@ -1,0 +1,223 @@
+@import '../../../assets/theme/variables';
+
+
+.welcome {
+  gap: $space * 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h6 {
+    font-size: 84px;
+    font-weight: 800;
+    font-family: $logo-font;
+    color: $title;
+  }
+
+  span {
+    font-size: 18px;
+    font-family: $title;
+    color: $primary;
+  }
+
+  h1 {
+    font-size: 45px;
+    font-weight: 400;
+    color: $title;
+
+    b {
+      font-family: $logo-font;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    width: 40%;
+  }
+}
+
+.featured-books-nav {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border-bottom: 1px solid rgb(143 143 143 / 25%);
+  position: relative;
+  width: auto;
+
+  .nav-item {
+    margin-bottom: 1px;
+
+    .nav-link {
+      border: 0;
+      font-size: 18px;
+      color: $title;
+      font-weight: 500;
+
+      &.active {
+        color: $primary;
+      }
+    }
+  }
+
+  .tabs-slider {
+    position: absolute;
+    bottom: -2px;
+    height: 2px;
+    background: $primary;
+    border: 0;
+    transition: all .25s;
+  }
+}
+
+.welcome-section {
+  border-bottom: 1px solid rgb(143 143 143 / 10%);
+}
+
+.featured-book-list {
+  width: 100%;
+
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: $space;
+    margin-bottom: $space * 2;
+    flex-grow: 1;
+
+    .cover {
+      position: relative;
+      box-shadow: 0 0 12px 0 rgba(43,43,43,.3);
+
+      img {
+        height: 380px;
+      }
+
+      .actions {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .3);
+        align-items: center;
+        justify-content: center;
+        gap: $space * 3;
+        transition: all .25s ease 0s;
+
+        button {
+          width: 40px;
+          height: 40px;
+          color: #fff;
+          border: 1px solid $primary;
+          background: $primary;
+          border-radius: 2px;
+          animation: pop .2s forwards;
+
+          ::ng-deep svg {
+            width: 24px;
+            height: 24px;
+          }
+
+          &:hover {
+            border-color: rgba(255, 255, 255, .5);
+          }
+        }
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: $space / 2;
+
+      h5 {
+        font-size: 18px;
+        color: $title;
+      }
+
+      span {
+        font-style: italic;
+        font-size: 14px;
+      }
+
+      .price {
+        font-style: normal;
+        font-family: $title-font;
+        font-size: 18px;
+        color: $primary;
+      }
+    }
+
+    &:hover {
+      .cover {
+        .actions {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .featured-book-list {
+    .book-item {
+      .cover {
+        img {
+          height: 320px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .welcome {
+    p {
+      width: 100%;
+    }
+  }
+  .featured-books-nav {
+    .nav-item {
+      .nav-link {
+        font-size: 13px;
+        padding: 5px 6px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .featured-book-list {
+    .book-item {
+      .cover {
+        img {
+          height: 280px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .featured-book-list {
+    .book-item {
+      .cover {
+        img {
+          height: 260px;
+        }
+      }
+    }
+  }
+}

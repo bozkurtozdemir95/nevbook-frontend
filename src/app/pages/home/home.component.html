@@ -5,7 +5,8 @@
         <div class="carousel-caption">
           <h6>{{slider.type}}</h6>
           <h2>{{slider.discount}}% DISCOUNT </h2>
-          <p>Use <b class="code">{{slider.code}}</b> promo code to get your discount for the books of <span>{{slider.category}}</span>.</p>
+          <p>Use <b class="code">{{slider.code}}</b> promo code to get your discount for the books of
+            <span>{{slider.category}}</span>.</p>
           <span>*Valid until {{slider.valid_until}}</span>
           <button class="custom-button" routerLink="{{slider.link}}">SHOP NOW</button>
         </div>
@@ -14,4 +15,131 @@
 
     </ng-template>
   </ngb-carousel>
+  <section class="page-section welcome-section">
+    <div class="container">
+      <div class="row">
+        <div class="welcome">
+          <h6>N</h6>
+          <h1>Welcome to <b>NevBook</b></h1>
+          <span>AN EXPERIMENTAL ONLINE BOOK STORE</span>
+          <p>NevBook began as an Onion Architecture web application project for college. In development process i
+            followed the
+            instructions and build it with the features expected.</p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-section books-section">
+    <h4 class="section-title">Book Store</h4>
+    <div class="container">
+      <div class="row">
+        <ul ngbNav #nav="ngbNav" class="nav-tabs featured-books-nav mt-6 mb-6">
+          <button class="tabs-slider" #tabsSlider></button>
+          <li ngbNavItem (click)="selectButton($event)">
+            <button ngbNavLink>Biographies</button>
+            <ng-template ngbNavContent>
+              <div class="featured-book-list" *ngIf="pageLoaded">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[0]">
+                    <div class="book-item">
+                      <div class="cover">
+                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
+                        <div class="actions">
+                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
+                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
+                        </div>
+                      </div>
+                      <div class="text">
+                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
+                        <span>by {{item.author}} - {{item.year}}</span>
+                        <span class="price">{{item.price}} ден</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li ngbNavItem (click)="selectButton($event)">
+            <button ngbNavLink>Education</button>
+            <ng-template ngbNavContent>
+              <div class="featured-book-list">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[1]">
+                    <div class="book-item">
+                      <div class="cover">
+                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
+                        <div class="actions">
+                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
+                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
+                        </div>
+                      </div>
+                      <div class="text">
+                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
+                        <span>by {{item.author}} - {{item.year}}</span>
+                        <span class="price">{{item.price}} ден</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li ngbNavItem (click)="selectButton($event)">
+            <button ngbNavLink>Computing</button>
+            <ng-template ngbNavContent>
+              <div class="featured-book-list">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[2]">
+                    <div class="book-item">
+                      <div class="cover">
+                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
+                        <div class="actions">
+                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
+                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
+                        </div>
+                      </div>
+                      <div class="text">
+                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
+                        <span>by {{item.author}} - {{item.year}}</span>
+                        <span class="price">{{item.price}} ден</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li ngbNavItem (click)="selectButton($event)">
+            <button ngbNavLink>History</button>
+            <ng-template ngbNavContent>
+              <div class="featured-book-list">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[3]">
+                    <div class="book-item">
+                      <div class="cover">
+                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
+                        <div class="actions">
+                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
+                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
+                        </div>
+                      </div>
+                      <div class="text">
+                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
+                        <span>by {{item.author}} - {{item.year}}</span>
+                        <span class="price">{{item.price}} ден</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav"></div>
+      </div>
+    </div>
+  </section>
+
 </div>

@@ -12,6 +12,25 @@
 @import './assets/theme/variables.scss';
 @import './assets/theme/grid.scss';
 
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  padding: 0 1px;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  background-color: $text;
+  background-clip: padding-box;
+  border-radius: 50px;
+}
+
 *,
 *::before,
 *::after {
@@ -221,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: $shadow;
   padding: $space $space * 3;
   transition: all .25s ease 0s;
+  border-radius: 2px;
 
   &:hover {
     transform: translateY(2px);
@@ -231,6 +251,59 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(4px) scale(.99);
     background: $primary-dark;
   }
+}
+
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary;
+  box-shadow: $shadow;
+  transition: all .25s ease 0s;
+  border-radius: 2px;
+
+  &:hover {
+    transform: translateY(1px);
+    background: $primary-hover;
+  }
+
+  &:active {
+    transform: translateY(2px) scale(.99);
+    background: $primary-dark;
+  }
+}
+
+.page-section {
+  min-height: 60vh;
+  padding: $space * 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: $title;
+    position: relative;
+    padding-bottom: $space;
+    margin-bottom: $space * 2;
+
+    &:after {
+      content: "";
+      width: 50px;
+      height: 2px;
+      background: $primary;
+      position: absolute;
+      bottom: -$space;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.tab-content {
+  padding: $space * 3 0;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -254,6 +327,10 @@ h1, h2, h3, h4, h5, h6 {
         height: 400px;
       }
     }
+  }
+
+  .page-section {
+    padding: $space * 2;
   }
 }
 
@@ -307,6 +384,10 @@ h1, h2, h3, h4, h5, h6 {
         }
       }
     }
+  }
+
+  .page-section {
+    padding: $space;
   }
 }
 

@@ -1,0 +1,12 @@
+@import '../../../assets/theme/variables';
+
+#footer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9999;
+  margin-bottom: 0;
+  background: transparent;
+  padding: $space * 2 0;
+  box-shadow: $shadow;
+}
