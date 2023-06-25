@@ -80,12 +80,8 @@
     }
 
     .cart {
-      height: 30px;
-      display: flex;
-      position: relative;
-      overflow: hidden;
 
-      .cart-toggler {
+      .dropdown-toggle {
         position: relative;
 
         span {
@@ -103,6 +99,10 @@
           display: flex;
           align-items: center;
           justify-content: center;
+
+          &.empty {
+            background: $text;
+          }
         }
       }
 
@@ -116,22 +116,137 @@
   }
 }
 
+.mobile-menu {
+  display: none;
 
-@media only screen and (max-width: 1200px) {
+  .dropdown-menu.show {
+    position: fixed !important;
+    top: 72px !important;
+    left: 0 !important;
+    transform: none !important;
+    border-radius: 0;
+    border: 0;
+    box-shadow: $shadow-dark;
+    padding: 0 !important;
+
+    li {
+      font-size: 13px;
+      font-weight: 600;
+      transition: all .25s ease 0s;
+      white-space: nowrap;
+      cursor: pointer;
+      color: $title;
+      padding: 10px 20px;
+    }
+  }
+}
+
+.cart {
+  display: flex;
+
+  .dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-toggle {
+    &:after {
+      content: none;
+    }
+
+    ::ng-deep svg {
+      height: 30px;
+      max-width: 30px;
+      color: $title;
+    }
+  }
+
+  .cart-content {
+    display: none;
+    width: 300px;
+    height: 400px;
+    background: #ffffff;
+    box-shadow: $shadow-dark;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+
+    &.show {
+      display: flex;
+      border-radius: 0;
+      border: 0;
+      box-shadow: $shadow-dark;
+      padding: 0 !important;
+    }
+
+    .empty-cart {
+      margin-top: auto;
+      margin-bottom: auto;
+      display: flex;
+      flex-direction: column;
+
+      button {
+        margin-top: $space * 2;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
   #header {
+    padding: $space 0;
 
     .header-menu {
+      display: none;
+    }
+
+    .mobile-menu {
       display: flex;
 
-      .dropdown-menu {
-        .dropdown-body {
-          li {
-            width: calc(100% / 2);
-          }
+      .dropdown {
+        display: flex;
+        align-items: center;
+      }
+
+      .dropdown-toggle {
+        width: 30px;
+        height: 30px;
+
+        &:after {
+          content: none;
         }
 
+        ::ng-deep svg {
+          height: 30px;
+          max-width: 30px;
+          color: $title;
+        }
       }
     }
 
+    .cart {
+      .dropdown-menu.show {
+        position: fixed !important;
+        top: 72px !important;
+        right: 0 !important;
+        transform: none !important;
+        border-radius: 0;
+        border: 0;
+        box-shadow: $shadow-dark;
+        padding: 0 !important;
+
+        li {
+          font-size: 13px;
+          font-weight: 600;
+          transition: all .25s ease 0s;
+          white-space: nowrap;
+          cursor: pointer;
+          color: $title;
+          padding: 10px 20px;
+        }
+      }
+    }
   }
+
 }

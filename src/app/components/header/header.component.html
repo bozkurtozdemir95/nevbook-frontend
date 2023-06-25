@@ -2,6 +2,19 @@
   <div class="container">
     <div class="row">
       <div class="flex justify-between w-100 relative">
+        <div class="mobile-menu">
+          <div ngbDropdown>
+            <button type="button" class="transparent-button" id="mobile" ngbDropdownToggle>
+              <app-icon [icon]="'menu'"/>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="mobile-menu">
+              <li routerLink="/">Home</li>
+              <li routerLink="/shop">Shop</li>
+              <li routerLink="/about">About</li>
+              <li routerLink="/contact">Contact</li>
+            </div>
+          </div>
+        </div>
         <div class="header-left">
           <div class="logo">NEVBOOK</div>
         </div>
@@ -18,14 +31,17 @@
             <app-icon [icon]="'search'"/>
           </button>
           <div class="cart">
-            <div class="cart-toggler">
-              <button class="transparent-button">
+            <div ngbDropdown>
+              <button type="button" class="transparent-button" id="cart" ngbDropdownToggle>
                 <app-icon [icon]="'cart'"/>
+                <span [class.empty]="true">0</span>
               </button>
-              <span>1</span>
-            </div>
-            <div class="cart-content">
-              <p>No items found in cart.</p>
+              <div ngbDropdownMenu class="cart-content" aria-labelledby="cart">
+                <div class="empty-cart">
+                  <p>No items found in cart.</p>
+                  <button class="custom-button" routerLink="/shop">SHOP NOW</button>
+                </div>
+              </div>
             </div>
           </div>
           <button class="transparent-button">

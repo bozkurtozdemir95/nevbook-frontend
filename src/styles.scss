@@ -198,12 +198,109 @@ h1, h2, h3, h4, h5, h6 {
   transition: all .25s ease 0s;
 
   &:hover {
-    transform: translateY(1px);
+    transform: translateY(2px);
     background: $primary-hover;
   }
 
   &:active {
-    transform: translateY(2px);
+    transform: translateY(4px) scale(.99);
     background: $primary-dark;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+
+  #home {
+    .carousel {
+
+      .carousel-inner {
+        height: 500px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+
+  #home {
+    .carousel {
+
+      .carousel-inner {
+        height: 400px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+
+  .custom-button {
+    padding: 7px 28px;
+    font-size: 14px;
+  }
+  #home {
+    .carousel {
+
+      .carousel-inner {
+        height: 300px;
+      }
+
+      .carousel-slide {
+        background-position: 78%;
+      }
+
+      .carousel-caption {
+        left: $space;
+        gap: $space * 1.5;
+        max-width: 50%;
+        top: $space;
+        transform: none;
+        background: #ffffff;
+        padding: $space * 2;
+        box-shadow: $shadow-dark;
+
+        h6 {
+          font-size: 12px;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        p {
+          font-size: 12px;
+        }
+
+
+        span {
+          font-size: 11px;
+        }
+
+        .code {
+          font-size: 13px;
+          padding: 2px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #home {
+    .carousel {
+      .carousel-caption {
+        padding: $space;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #home {
+    .carousel {
+      .carousel-caption {
+        gap: $space * .8;
+      }
+    }
   }
 }
