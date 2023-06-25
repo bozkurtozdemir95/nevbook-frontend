@@ -1,0 +1,38 @@
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="flex justify-between w-100">
+        <div class="header-left">
+          <div class="logo">NEVBOOK</div>
+        </div>
+        <div class="header-menu">
+          <ul>
+            <li routerLink="/">Home</li>
+            <li routerLink="/products">Books</li>
+            <li routerLink="/about">About</li>
+            <li routerLink="/contact">Contact</li>
+          </ul>
+        </div>
+        <div class="header-right">
+          <button class="transparent-button">
+            <app-icon [icon]="'search'"/>
+          </button>
+          <div class="cart">
+            <div class="cart-toggler">
+              <button class="transparent-button">
+                <app-icon [icon]="'cart'"/>
+              </button>
+              <span>1</span>
+            </div>
+            <div class="cart-content">
+              <p>No items found in cart.</p>
+            </div>
+          </div>
+          <button class="transparent-button">
+            <app-icon [icon]="'user'"/>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

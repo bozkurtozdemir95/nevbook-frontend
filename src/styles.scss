@@ -1,1 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './assets/fonts/Oswald/stylesheet.css';
+@import './assets/fonts/Poppins/stylesheet.css';
+@import './assets/fonts/Cropped/stylesheet.css';
+@import './assets/theme/variables.scss';
+@import './assets/theme/grid.scss';
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+  font-family: $font;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text;
+  background: transparent;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  border-style: none;
+  width: 100%;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+a,
+i {
+  border: none;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+img:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+textarea {
+  resize: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.transparent-button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}

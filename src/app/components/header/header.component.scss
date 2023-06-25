@@ -1,0 +1,116 @@
+@import '../../../assets/theme/variables';
+
+#header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9999;
+  margin-bottom: 0;
+  background: transparent;
+  padding: $space * 2 0;
+  box-shadow: $shadow;
+
+  .logo {
+    font-family: 'Cropped', sans-serif;
+    font-size: 32px;
+    color: $title;
+  }
+
+  .header-menu {
+    display: flex;
+
+    ul {
+      display: flex;
+      align-items: center;
+
+      li {
+        margin: 0 $space;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all .25s ease 0s;
+        white-space: nowrap;
+        cursor: pointer;
+        color: $title;
+        position: relative;
+
+        &:hover, &.active {
+          color: $primary;
+
+          &:before {
+            width: 80%;
+          }
+        }
+
+        &:before {
+          content: '';
+          width: 0;
+          height: 2px;
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translate(-50%, 2px);
+          background: $primary;
+          transition: all .25s ease 0s;
+        }
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: $space;
+
+    button {
+      height: 30px;
+      padding: 0 $space;
+
+      &:hover {
+        &::ng-deep svg {
+          color: $text;
+        }
+      }
+    }
+
+    ::ng-deep svg {
+      height: 22px;
+      max-width: 26px;
+      color: $title;
+    }
+
+    .cart {
+      height: 30px;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+
+      .cart-toggler {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 0;
+          right: 2px;
+          font-size: 10px;
+          font-weight: 600;
+          background: $primary;
+          color: #fff;
+          padding: 3px;
+          border-radius: 50%;
+          width: 14px;
+          height: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .cart-content {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(100%);
+      }
+    }
+  }
+}
