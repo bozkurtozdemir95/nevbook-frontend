@@ -10,15 +10,22 @@
   padding: $space * 2 0;
   box-shadow: $shadow;
 
-  .logo {
-    font-family: 'Cropped', sans-serif;
-    font-size: 32px;
-    color: $title;
-    cursor: pointer;
+  .header-left {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      font-family: 'Cropped', sans-serif;
+      font-size: 32px;
+      color: $title;
+      cursor: pointer;
+    }
+
   }
 
   .header-menu {
     display: flex;
+    text-transform: uppercase;
 
     ul {
       display: flex;
@@ -81,28 +88,44 @@
     }
 
     .cart {
+      display: flex;
 
-      .dropdown-toggle {
-        position: relative;
+      .dropdown {
+        display: flex;
+        align-items: center;
 
-        span {
-          position: absolute;
-          top: 0;
-          right: 2px;
-          font-size: 10px;
-          font-weight: 600;
-          background: $primary;
-          color: #fff;
-          padding: 3px;
-          border-radius: 50%;
-          width: 14px;
-          height: 14px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .dropdown-toggle {
+          position: relative;
 
-          &.empty {
-            background: $text;
+          &:after {
+            content: none;
+          }
+
+          ::ng-deep svg {
+            height: 30px;
+            max-width: 30px;
+            color: $title;
+          }
+
+          span {
+            position: absolute;
+            top: 0;
+            right: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            background: $primary;
+            color: #fff;
+            padding: 3px;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.empty {
+              background: $text;
+            }
           }
         }
       }
@@ -112,87 +135,123 @@
         bottom: 0;
         right: 0;
         transform: translateY(100%);
+        display: none;
+        width: 300px;
+        height: 400px;
+        background: #ffffff;
+        box-shadow: $shadow-dark;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+
+        &.show {
+          display: flex;
+          border-radius: 0;
+          border: 0;
+          box-shadow: $shadow-dark;
+          padding: 0 !important;
+        }
+
+        .empty-cart {
+          margin-top: auto;
+          margin-bottom: auto;
+          display: flex;
+          flex-direction: column;
+
+          button {
+            margin-top: $space * 2;
+          }
+        }
+      }
+
+
+    }
+
+    .language-menu {
+      .dropdown {
+        display: flex;
+        align-items: center;
+
+        .dropdown-toggle {
+          padding: 0 5px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(143, 143, 143, 0.1);
+          transition: all .25s ease 0s;
+
+          &:hover, &.active {
+            background: rgba(143, 143, 143, 0.1);
+          }
+
+          &:after {
+            content: none;
+          }
+
+          ::ng-deep svg {
+            height: 12px;
+            max-width: 24px;
+            color: $title;
+          }
+
+          img {
+            width: 24px;
+            height: auto;
+          }
+        }
+
+        .dropdown-menu {
+          border-radius: 0;
+          border: 0;
+          box-shadow: $shadow-dark;
+          padding: 0 !important;
+
+          li{
+            font-size: 13px;
+            font-weight: 600;
+            transition: all .25s ease 0s;
+            white-space: nowrap;
+            cursor: pointer;
+            color: $title;
+            padding: 10px 20px;
+            text-transform: uppercase;
+          }
+        }
       }
     }
   }
-}
 
-.mobile-menu {
-  display: none;
-
-  .dropdown-menu.show {
-    position: fixed !important;
-    top: 72px !important;
-    left: 0 !important;
-    transform: none !important;
-    border-radius: 0;
-    border: 0;
-    box-shadow: $shadow-dark;
-    padding: 0 !important;
-
-    li {
-      font-size: 13px;
-      font-weight: 600;
-      transition: all .25s ease 0s;
-      white-space: nowrap;
-      cursor: pointer;
-      color: $title;
-      padding: 10px 20px;
-    }
-  }
-}
-
-.cart {
-  display: flex;
-
-  .dropdown {
-    display: flex;
-    align-items: center;
-  }
-
-  .dropdown-toggle {
-    &:after {
-      content: none;
-    }
-
-    ::ng-deep svg {
-      height: 30px;
-      max-width: 30px;
-      color: $title;
-    }
-  }
-
-  .cart-content {
+  .mobile-menu {
     display: none;
-    width: 300px;
-    height: 400px;
-    background: #ffffff;
-    box-shadow: $shadow-dark;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
 
-
-    &.show {
-      display: flex;
+    .dropdown-menu.show {
+      position: fixed !important;
+      top: 72px !important;
+      left: 0 !important;
+      transform: none !important;
       border-radius: 0;
       border: 0;
       box-shadow: $shadow-dark;
       padding: 0 !important;
-    }
 
-    .empty-cart {
-      margin-top: auto;
-      margin-bottom: auto;
-      display: flex;
-      flex-direction: column;
-
-      button {
-        margin-top: $space * 2;
+      li {
+        font-size: 13px;
+        font-weight: 600;
+        transition: all .25s ease 0s;
+        white-space: nowrap;
+        cursor: pointer;
+        color: $title;
+        padding: 10px 20px;
+        text-transform: uppercase;
       }
     }
   }
+
+
 }
+
 
 @media only screen and (max-width: 992px) {
   #header {

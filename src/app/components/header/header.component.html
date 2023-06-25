@@ -4,11 +4,11 @@
       <div class="flex justify-between w-100 relative">
         <div class="mobile-menu">
           <div ngbDropdown>
-            <button type="button" class="transparent-button" id="mobile" ngbDropdownToggle>
+            <button type="button" class="transparent-button" id="mobile-menu" ngbDropdownToggle>
               <app-icon [icon]="'menu'"/>
             </button>
             <div ngbDropdownMenu aria-labelledby="mobile-menu">
-              <li [routerLink]="item.link" routerLinkActive="active" *ngFor="let item of menu">{{item.title}}</li>
+              <li [routerLink]="item.link" routerLinkActive="active" *ngFor="let item of menu">{{item.title | translate}}</li>
             </div>
           </div>
         </div>
@@ -17,7 +17,8 @@
         </div>
         <div class="header-menu">
           <ul>
-            <li [routerLink]="item.link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" *ngFor="let item of menu">{{item.title}}</li>
+            <li [routerLink]="item.link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active"
+                *ngFor="let item of menu">{{item.title | translate}}</li>
           </ul>
         </div>
         <div class="header-right">
@@ -32,8 +33,8 @@
               </button>
               <div ngbDropdownMenu class="cart-content" aria-labelledby="cart">
                 <div class="empty-cart">
-                  <p>No items found in cart.</p>
-                  <button class="custom-button" routerLink="/shop">SHOP NOW</button>
+                  <p>{{'no_item' | translate}}</p>
+                  <button class="custom-button" routerLink="/shop">{{'SHOP NOW' | translate}}</button>
                 </div>
               </div>
             </div>
@@ -41,6 +42,18 @@
           <button class="transparent-button">
             <app-icon [icon]="'user'"/>
           </button>
+          <div class="language-menu">
+            <div ngbDropdown>
+              <button type="button" class="transparent-button" id="language-menu" ngbDropdownToggle>
+                <img src="../../../assets/img/flags/{{langService.currentLang}}.png" alt="">
+                <app-icon [icon]="'arrow-bottom'"/>
+              </button>
+              <div ngbDropdownMenu aria-labelledby="language-menu">
+                <li (click)="changeLang(lang.key)" routerLinkActive="active"
+                    *ngFor="let lang of languages">{{lang.value}}</li>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,10 @@
 {
   "lang_key": "en",
-  "lang_name": "English"
+  "lang_name": "English",
+  "no_item": "No items found in cart.",
+  "shop_now": "SHOP NOW",
+  "home": "Home",
+  "shop": "Shop",
+  "about": "About",
+  "contact": "Contact"
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../../services/category.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
@@ -9,15 +10,24 @@ import {CategoryService} from "../../services/category.service";
 export class HeaderComponent implements OnInit {
 
   menu: any = [
-    {id: 0, title: "Home", link: '/'},
-    {id: 1, title: "Shop", link: '/shop'},
-    {id: 2, title: "About", link: '/about'},
-    {id: 3, title: "Contact", link: '/contact'},
+    {id: 0, title: "home", link: '/'},
+    {id: 1, title: "shop", link: '/shop'},
+    {id: 2, title: "about", link: '/about'},
+    {id: 3, title: "contact", link: '/contact'},
   ];
 
-  constructor() {
+  languages = [
+    {id: 1, key: 'en', value: 'English'},
+    {id: 2, key: 'mk', value: 'македонски'},
+  ];
+
+  constructor(public langService: TranslateService) {
   }
 
   ngOnInit() {
+  }
+
+  changeLang(key: string) {
+    this.langService.use(key);
   }
 }

@@ -1,4 +1,10 @@
 {
   "lang_key": "mk",
-  "lang_name": "македонски"
+  "lang_name": "македонски",
+  "no_item": "No items found in cart.",
+  "shop_now": "SHOP NOW",
+  "home": "ДОМА",
+  "shop": "ПРОДАВНИЦА",
+  "about": "ЗА НАС",
+  "contact": "КОНТАКТ"
 }
