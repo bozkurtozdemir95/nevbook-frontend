@@ -16,11 +16,11 @@ export class ProductComponent {
   }
 
   ngOnInit(): void {
+    console.log(this.product)
   }
 
 
   addProduct(product: any): void {
-    product.count = 1;
     this.cartService.addToCart(product);
   }
 }

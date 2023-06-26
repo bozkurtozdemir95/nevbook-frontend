@@ -8,5 +8,8 @@
   "about": "About",
   "contact": "Contact",
   "categories": "Categories",
-  "search": "Search"
+  "search": "Search",
+  "view_cart": "View Cart",
+  "checkout": "Checkout",
+  "total": "Total"
 }

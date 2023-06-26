@@ -10,7 +10,7 @@
 
   .cover {
     position: relative;
-    box-shadow: 0 0 12px 0 rgba(43,43,43,.3);
+    box-shadow: 0 0 12px 0 rgba(43, 43, 43, .3);
 
     img {
       height: 380px;
@@ -58,6 +58,10 @@
     h5 {
       font-size: 18px;
       color: $title;
+
+      &:hover {
+        color: $primary;
+      }
     }
 
     span {

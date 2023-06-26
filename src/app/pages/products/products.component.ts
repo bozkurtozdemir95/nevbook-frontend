@@ -60,7 +60,7 @@ export class ProductsComponent {
 
   onSearchChange(filter: any) {
     this.filteredArray = this.allProducts.filter((item: any) => {
-        if (item.product_name.toString().toLowerCase().indexOf(filter.target.value.toLowerCase()) === -1) {
+        if (item.name.toLowerCase().indexOf(filter.target.value.toLowerCase()) === -1) {
           this.filteredArray = this.allProducts;
         }
       }

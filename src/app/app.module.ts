@@ -20,6 +20,7 @@ import {NgbCarousel, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BookComponent } from './pages/book/book.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     IconComponent,
     AboutComponent,
     ContactComponent,
-    BookComponent
+    BookComponent,
+    ProductListComponent
   ],
   imports: [
     CommonModule,

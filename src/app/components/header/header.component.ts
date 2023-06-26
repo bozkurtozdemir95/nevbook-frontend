@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../../services/category.service";
 import {TranslateService} from "@ngx-translate/core";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,6 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
   menu: any = [
     {id: 0, title: "home", link: '/'},
     {id: 1, title: "shop", link: '/shop'},
@@ -21,13 +21,26 @@ export class HeaderComponent implements OnInit {
     {id: 2, key: 'mk', value: 'македонски'},
   ];
 
-  constructor(public langService: TranslateService) {
+  constructor(public langService: TranslateService, public cartService: CartService) {
   }
 
   ngOnInit() {
+    this.getCartItems();
   }
 
   changeLang(key: string) {
     this.langService.use(key);
   }
+
+  clearCart(): void {
+    this.cartService.clearCart();
+    this.getCartItems();
+  }
+
+  getCartItems(): void {
+    this.cartService.getItems();
+    console.log(this.cartService.items);
+  }
+
+
 }

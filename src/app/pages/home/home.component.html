@@ -42,20 +42,7 @@
               <div class="featured-book-list" *ngIf="pageLoaded">
                 <div class="row">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[0]">
-                    <div class="book-item">
-                      <div class="cover">
-                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
-                        <div class="actions">
-                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
-                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
-                        </div>
-                      </div>
-                      <div class="text">
-                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
-                        <span>by {{item.author}} - {{item.year}}</span>
-                        <span class="price">{{item.price}} ден</span>
-                      </div>
-                    </div>
+                    <app-product [product]="item"/>
                   </div>
                 </div>
               </div>
@@ -67,20 +54,7 @@
               <div class="featured-book-list">
                 <div class="row">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[1]">
-                    <div class="book-item">
-                      <div class="cover">
-                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
-                        <div class="actions">
-                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
-                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
-                        </div>
-                      </div>
-                      <div class="text">
-                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
-                        <span>by {{item.author}} - {{item.year}}</span>
-                        <span class="price">{{item.price}} ден</span>
-                      </div>
-                    </div>
+                    <app-product [product]="item"/>
                   </div>
                 </div>
               </div>
@@ -92,20 +66,7 @@
               <div class="featured-book-list">
                 <div class="row">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[2]">
-                    <div class="book-item">
-                      <div class="cover">
-                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
-                        <div class="actions">
-                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
-                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
-                        </div>
-                      </div>
-                      <div class="text">
-                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
-                        <span>by {{item.author}} - {{item.year}}</span>
-                        <span class="price">{{item.price}} ден</span>
-                      </div>
-                    </div>
+                    <app-product [product]="item"/>
                   </div>
                 </div>
               </div>
@@ -117,20 +78,7 @@
               <div class="featured-book-list">
                 <div class="row">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let item of filteredProducts[3]">
-                    <div class="book-item">
-                      <div class="cover">
-                        <img src="../../../assets/img/products/{{item.productID}}.png" alt="NevBook">
-                        <div class="actions">
-                          <button class="primary-button"><app-icon [icon]="'cart'"></app-icon></button>
-                          <button class="primary-button" routerLink="/book/{{item.productID}}"><app-icon [icon]="'search'"></app-icon></button>
-                        </div>
-                      </div>
-                      <div class="text">
-                        <h5 routerLink="/book/{{item.productID}}">{{item.name}}</h5>
-                        <span>by {{item.author}} - {{item.year}}</span>
-                        <span class="price">{{item.price}} ден</span>
-                      </div>
-                    </div>
+                    <app-product [product]="item"/>
                   </div>
                 </div>
               </div>

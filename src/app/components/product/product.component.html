@@ -2,7 +2,7 @@
   <div class="cover">
     <img src="../../../assets/img/products/{{product.productID}}.png" alt="NevBook">
     <div class="actions">
-      <button class="primary-button">
+      <button class="primary-button" (click)="addProduct(product)">
         <app-icon [icon]="'cart'"></app-icon>
       </button>
       <button class="primary-button" routerLink="/book/{{product.productID}}">
@@ -12,7 +12,7 @@
   </div>
   <div class="text">
     <h5 routerLink="/book/{{product.productID}}">{{product.name}}</h5>
-    <span>by {{product.author}} - {{product.year}}</span>
+    <span class="author">by {{product.author}} - {{product.year}}</span>
     <span class="price">{{product.price}} ден</span>
   </div>
 </div>

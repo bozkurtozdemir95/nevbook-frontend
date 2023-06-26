@@ -1,0 +1,6 @@
+<div class="cart-item" *ngFor="let product of products">
+  <app-product [product]="product"/>
+  <button class="delete-product transparent-button" (click)="removeItem(product)">
+    <app-icon [icon]="'trash'"></app-icon>
+  </button>
+</div>

@@ -1,0 +1,27 @@
+@import '../../../assets/theme/variables';
+
+.cart-item {
+  position: relative;
+
+  .delete-product {
+    position: absolute;
+    right: $space;
+    top: 0;
+    border: 0;
+
+
+    ::ng-deep svg {
+      color: $text !important;
+      width: 14px !important;
+      height: unset;
+      max-height: 20px;
+      display: flex;
+    }
+
+    &:hover {
+      ::ng-deep svg {
+        color: $primary !important;
+      }
+    }
+  }
+}

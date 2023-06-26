@@ -2,13 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <!--<form action="#" id="search">
+        <form id="search">
           <div class="custom-input with-button">
             <input type="text" name="search" placeholder="Search products..." (input)="onSearchChange($event)">
-            <button type="submit" class="input-button" translate>search</button>
+            <button type="submit" class="primary-button">
+              <app-icon [icon]="'search'"/>
+            </button>
           </div>
-        </form>-->
-        <div class="sidebar-box">
+        </form>
+        <div class="sidebar-box mt-5">
           <div class="title">
             <span translate>categories</span>
           </div>
@@ -35,14 +37,14 @@
         </div>
       </div>
       <div class="col-lg-9">
-        <!--<div class="products-row-wrapper shop-filter-bar">
+        <div class="products-row-wrapper shop-filter-bar">
           <div class="custom-input">
             <select name="filterDate" id="filterDate" (change)="onChangeDate($event)">
               <option value="0">Filter By Date</option>
               <option value="1">Sort By Latest</option>
               <option value="2">Sort By Oldest</option>
             </select>
-            <app-icon [icon]="'arrow-bottom'"></app-icon>
+            <!--<app-icon [icon]="'arrow-bottom'"></app-icon>-->
           </div>
           <div class="custom-input">
             <select name="filterPrice" id="filterPrice" (change)="onChangePrice($event)">
@@ -50,15 +52,15 @@
               <option value="1">Sort By Price (low to high)</option>
               <option value="2">Sort By Price (high to low)</option>
             </select>
-            <app-icon [icon]="'arrow-bottom'"></app-icon>
+            <!--<app-icon [icon]="'arrow-bottom'"></app-icon>-->
           </div>
           <div class="custom-input">
             <p class="product-count">{{this.filteredArray.length}} Products Found</p>
           </div>
-        </div>-->
-        <div class="products-row-wrapper slideInUp">
+        </div>
+        <div class="products-row-wrapper mt-5 slideInUp">
           <div class="row">
-            <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
+            <div class="col-xl-3 col-lg-6 col-sm-6 col-xs-6" *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
               <app-product [product]="product"></app-product>
             </div>
 

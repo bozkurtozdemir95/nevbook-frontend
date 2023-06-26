@@ -8,7 +8,8 @@
               <app-icon [icon]="'menu'"/>
             </button>
             <div ngbDropdownMenu aria-labelledby="mobile-menu">
-              <li [routerLink]="item.link" routerLinkActive="active" *ngFor="let item of menu">{{item.title | translate}}</li>
+              <li [routerLink]="item.link" routerLinkActive="active"
+                  *ngFor="let item of menu">{{item.title | translate}}</li>
             </div>
           </div>
         </div>
@@ -22,24 +23,35 @@
           </ul>
         </div>
         <div class="header-right">
-          <button class="transparent-button">
+          <button class="transparent-button right-menu-button">
             <app-icon [icon]="'search'"/>
           </button>
           <div class="cart">
             <div ngbDropdown>
               <button type="button" class="transparent-button" id="cart" ngbDropdownToggle>
                 <app-icon [icon]="'cart'"/>
-                <span [class.empty]="true">0</span>
+                <span [class.empty]="true" *ngIf="cartService.items.length"> {{cartService.items.length}}</span>
               </button>
               <div ngbDropdownMenu class="cart-content" aria-labelledby="cart">
-                <div class="empty-cart">
+                <app-product-list [products]="cartService.items" *ngIf="cartService.items.length"/>
+                <div class="cart-bottom" *ngIf="cartService.items.length">
+                  <div class="total">
+                    <div class="title">{{'total' | translate}}:</div>
+                    <div class="price">183.00</div>
+                  </div>
+                  <div class="buttons">
+                    <button class="custom-button" routerLink="/checkout">{{'view_cart' | translate}}</button>
+                    <button class="custom-button bordered" routerLink="/checkout">{{'checkout' | translate}}</button>
+                  </div>
+                </div>
+                <div class="empty-cart" *ngIf="!cartService.items.length">
                   <p>{{'no_item' | translate}}</p>
                   <button class="custom-button" routerLink="/shop">{{'SHOP NOW' | translate}}</button>
                 </div>
               </div>
             </div>
           </div>
-          <button class="transparent-button">
+          <button class="transparent-button right-menu-button">
             <app-icon [icon]="'user'"/>
           </button>
           <div class="language-menu">

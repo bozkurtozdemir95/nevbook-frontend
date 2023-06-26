@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
   font-weight: 600;
   background: $primary;
-  border: 0;
+  border: 1px solid transparent;
   box-shadow: $shadow;
   padding: $space $space * 3;
   transition: all .25s ease 0s;
@@ -256,6 +256,23 @@ h1, h2, h3, h4, h5, h6 {
   &:active {
     transform: translateY(4px) scale(.99);
     background: $primary-dark;
+  }
+
+
+  &.bordered {
+    background: transparent;
+    border-color: $primary;
+    color: $primary;
+
+    &:hover {
+      background: $primary-hover;
+      color: #fff;
+    }
+
+    &:active {
+      background: $primary-dark;
+      color: #fff;
+    }
   }
 }
 
@@ -310,6 +327,44 @@ h1, h2, h3, h4, h5, h6 {
 
 .tab-content {
   padding: $space * 3 0;
+}
+
+.custom-input {
+
+  &.with-button {
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: #ffffff;
+      }
+    }
+  }
+
+  input {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid $border-color;
+    padding: $space $space * 1.5;
+    font-size: 13px;
+    line-height: 24px;
+    background: transparent;
+  }
 }
 
 @media only screen and (max-width: 1600px) {
