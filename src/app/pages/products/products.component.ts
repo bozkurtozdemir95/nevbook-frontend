@@ -15,7 +15,8 @@ export class ProductsComponent {
   filteredArray: any;
   activeCategoryId: any;
   activeClass: any;
-  openedCategory = 3;
+  openedCategory = 0;
+  page= 1;
 
   constructor(public ui: UiService) {
 
