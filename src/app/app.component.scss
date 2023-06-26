@@ -1,5 +1,28 @@
+@import "../assets/theme/variables";
+
 .page-container {
   padding-top: 91px;
+}
+
+#slide-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  z-index: 9;
+  background: $primary;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::ng-deep svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -7,3 +30,4 @@
     padding-top: 65px;
   }
 }
+

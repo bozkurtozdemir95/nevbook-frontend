@@ -1,1 +1,73 @@
-<p>products works!</p>
+<div id="shop">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <!--<form action="#" id="search">
+          <div class="custom-input with-button">
+            <input type="text" name="search" placeholder="Search products..." (input)="onSearchChange($event)">
+            <button type="submit" class="input-button" translate>search</button>
+          </div>
+        </form>-->
+        <div class="sidebar-box">
+          <div class="title">
+            <span translate>categories</span>
+          </div>
+          <div class="content">
+            <ul class="sidebar-category-list">
+              <div class="category-item" (click)="clearCategoryFilter()">
+                <h4 [ngClass]="activeClass">All</h4>
+              </div>
+              <div class="category-item" *ngFor="let category of organizedCategories" [class.active]="openedCategory === category.categoryID">
+                <div class="category-collapse" (click)="toggleCategoryCollapse(category.categoryID)"
+                     [ngClass]="activeCategoryId === category.categoryID ? 'active' : ''">
+                  <h4 (click)="filterByCategory(category.categoryID)">{{category.title}}
+                    ({{category.subMenu.length}})</h4>
+                </div>
+                <ul>
+                  <li *ngFor="let subitem of category.subMenu">
+                    <span (click)="filterByCategory(subitem.categoryID)"
+                        [ngClass]="activeCategoryId === subitem.categoryID ? 'active' : ''">{{subitem.title}}</span>
+                  </li>
+                </ul>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <!--<div class="products-row-wrapper shop-filter-bar">
+          <div class="custom-input">
+            <select name="filterDate" id="filterDate" (change)="onChangeDate($event)">
+              <option value="0">Filter By Date</option>
+              <option value="1">Sort By Latest</option>
+              <option value="2">Sort By Oldest</option>
+            </select>
+            <app-icon [icon]="'arrow-bottom'"></app-icon>
+          </div>
+          <div class="custom-input">
+            <select name="filterPrice" id="filterPrice" (change)="onChangePrice($event)">
+              <option value="0">Filter By Price</option>
+              <option value="1">Sort By Price (low to high)</option>
+              <option value="2">Sort By Price (high to low)</option>
+            </select>
+            <app-icon [icon]="'arrow-bottom'"></app-icon>
+          </div>
+          <div class="custom-input">
+            <p class="product-count">{{this.filteredArray.length}} Products Found</p>
+          </div>
+        </div>-->
+        <div class="products-row-wrapper slideInUp">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let product of filteredArray; let i = index">
+              <app-product [product]="product"></app-product>
+            </div>
+
+            <div class="products-error danger" *ngIf="!filteredArray.length">
+              No products found
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

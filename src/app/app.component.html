@@ -5,3 +5,6 @@
   </div>
   <app-footer></app-footer>
 </div>
+<div id="slide-top" (click)="ui.scrollTop()" *ngIf="scrolled">
+  <app-icon [icon]="'arrow-up'"/>
+</div>

@@ -52,15 +52,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     config.showNavigationIndicators = true;
   }
 
-  ngOnInit(){
-    console.log(this.pageLoaded)
+  ngOnInit() {
 
   }
+
   async ngAfterViewInit() {
-    //await this.setSlidePosition();
-    await this.fetchData().then(r => this.pageLoaded=true);
-    await console.log(this.filteredProducts);
-    await console.log(this.pageLoaded)
+    await this.setSlidePosition();
+    await this.fetchData().then(r => this.pageLoaded = true);
   }
 
   async fetchData() {
@@ -80,10 +78,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
           break;
       }
     });
-    this.filteredProducts[0] = this.filteredProducts[0].slice(0,8);
-    this.filteredProducts[1] = this.filteredProducts[1].slice(0,8);
-    this.filteredProducts[2] = this.filteredProducts[2].slice(0,8);
-    this.filteredProducts[3] = this.filteredProducts[3].slice(0,8);
+    this.filteredProducts[0] = this.filteredProducts[0].slice(0, 8);
+    this.filteredProducts[1] = this.filteredProducts[1].slice(0, 8);
+    this.filteredProducts[2] = this.filteredProducts[2].slice(0, 8);
+    this.filteredProducts[3] = this.filteredProducts[3].slice(0, 8);
 
   }
 

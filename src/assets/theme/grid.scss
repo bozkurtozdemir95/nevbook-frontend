@@ -36,6 +36,12 @@
   }
 }
 
+@media (min-width: 1500px) {
+  .container {
+    width: 1500px;
+  }
+}
+
 .row {
   height: 100%;
   display: flex;

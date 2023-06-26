@@ -1,11 +1,6 @@
  [
     {
         "parentID": 0,
-        "categoryID": 0,
-        "title": "All Products"
-    },
-    {
-        "parentID": 0,
         "categoryID": 1,
         "title": "Accounting & Finance"
     },
