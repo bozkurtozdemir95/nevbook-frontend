@@ -61,6 +61,10 @@ body {
   padding: 0;
 }
 
+hr {
+  border-color: $border-color !important;
+}
+
 blockquote,
 ul,
 ol {
@@ -247,6 +251,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: $space $space * 3;
   transition: all .25s ease 0s;
   border-radius: 2px;
+  height: 40px;
 
   &:hover {
     transform: translateY(2px);
@@ -371,6 +376,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .transition {
   transition: $transition;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 ngb-pagination {

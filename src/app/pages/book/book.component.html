@@ -1,1 +1,60 @@
-<p>book works!</p>
+<div id="book">
+  <div class="container">
+    <div class="row align-start">
+      <div class="col-lg-3">
+        <div class="book-img">
+          <img src="../../../assets/img/products/{{book.productID}}.webp" alt="NevBook">
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="book-details">
+          <h3>{{book.name}}</h3>
+          <h5>{{book.price}} {{'currency' | translate}}</h5>
+          <hr>
+
+          <div class="stock">
+            <div class="icon">
+              <app-icon [icon]="'check'"></app-icon>
+            </div>
+            <h6>In Stock: <span> {{book.stock}}</span></h6>
+          </div>
+          <div class="buy">
+            <div class="count-input">
+              <button class="minus" (click)="minus()">
+                <app-icon [icon]="'remove'"></app-icon>
+              </button>
+              <input type="number" [ngModel]="quantity" readonly/>
+              <button class="plus" (click)="plus()">
+                <app-icon [icon]="'add'"></app-icon>
+              </button>
+            </div>
+            <button class="custom-button">{{'add_to_cart' | translate}}</button>
+          </div>
+          <hr>
+          <p>
+            {{book.description}}
+          </p>
+          <ul>
+            <li>
+              <h6>{{'author' | translate}}:</h6>
+              <span> {{book.author}}</span>
+            </li>
+            <li>
+              <h6>{{'publisher' | translate}}:</h6>
+              <span> {{book.publisher}}</span>
+            </li>
+            <li>
+              <h6>{{'year' | translate}}:</h6>
+              <span> {{book.year}}</span>
+            </li>
+            <li>
+              <h6>{{'pages' | translate}}:</h6>
+              <span> {{book.pages}}</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,7 @@
   "category_title": "Category",
   "search": "Search...",
   "view_cart": "View Cart",
+  "add_to_cart": "Add To Cart",
   "checkout": "Checkout",
   "total": "Total",
   "category": {
@@ -42,5 +43,9 @@
   "welcome_title": "AN EXPERIMENTAL ONLINE BOOK STORE",
   "welcome_description": "NevBook began as an Onion Architecture web application project for college. In development process i followed the instructions and build it with the features expected.",
   "discount": "DISCOUNT",
-  "filter": "Filter"
+  "filter": "Filter",
+  "author": "Author",
+  "publisher": "Publisher",
+  "year": "Year",
+  "pages": "Pages"
 }
