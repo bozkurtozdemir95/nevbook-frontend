@@ -3,19 +3,19 @@
     <div class="row">
       <div class="flex justify-between w-100 relative">
 
-        <div class="header-left" routerLink="/">
+        <div class="header-left" >
           <div class="mobile-menu">
             <div ngbDropdown>
               <button type="button" class="transparent-button" id="mobile-menu" ngbDropdownToggle>
                 <app-icon [icon]="'menu'"/>
               </button>
               <div ngbDropdownMenu aria-labelledby="mobile-menu">
-                <li [routerLink]="item.link" routerLinkActive="active"
+                <li [routerLink]="item.link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active"
                     *ngFor="let item of menu">{{item.title | translate}}</li>
               </div>
             </div>
           </div>
-          <div class="logo">NEVBOOK</div>
+          <div class="logo" routerLink="/">NEVBOOK</div>
         </div>
         <div class="header-menu">
           <ul>

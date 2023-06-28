@@ -42,12 +42,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutComponent,
     ContactComponent,
     BookComponent,
-    ProductListComponent,
+    ProductListComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     NgbCarousel,
     FormsModule,
@@ -58,10 +57,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent,],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

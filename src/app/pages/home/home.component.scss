@@ -88,8 +88,16 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
-
+@media only screen and (min-width: 1600px) {
+  .featured-book-list {
+    .product-wrapper {
+      width: calc(100% / 5);
+      flex: calc(100% / 5);
+      max-width: calc(100% / 5);
+      padding-left: $space;
+      padding-right: $space;
+    }
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -106,12 +114,4 @@
       }
     }
   }
-}
-
-@media only screen and (max-width: 768px) {
-
-}
-
-@media only screen and (max-width: 480px) {
-
 }

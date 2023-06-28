@@ -19,15 +19,7 @@ export class ProductsComponent {
   categoriesCollapsed = true;
 
 
-  pricedProducts: any = [];
-  randomPrices = [1199, 1699, 2499, 2999, 3199, 3499, 3999, 4599, 5499, 5999];
-
   constructor(public ui: UiService) {
-
-    this.allProducts.map((e: any) => {
-      e.price = this.randomPrices[Math.floor(Math.random() * 9) + 1];
-      this.pricedProducts.push(e)
-    })
   }
 
   ngOnInit(): void {
