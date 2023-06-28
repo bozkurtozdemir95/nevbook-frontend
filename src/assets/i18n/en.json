@@ -9,11 +9,13 @@
   "about": "About",
   "contact": "Contact",
   "categories": "Categories",
+  "category_title": "Category",
   "search": "Search",
   "view_cart": "View Cart",
   "checkout": "Checkout",
   "total": "Total",
   "category": {
+    "all": "All",
     "accounting_finance": "Accounting & Finance",
     "architecture_design": "Architecture & Design",
     "arts": "Arts",

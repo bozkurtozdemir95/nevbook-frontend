@@ -12,7 +12,8 @@
         </form>
         <div class="sidebar-box mt-5" [class.active]="!categoriesCollapsed">
           <div class="title" (click)="toggleCategories()">
-            <span translate>categories</span>
+            <span translate>category_title<b>: {{'category.' + activeCategoryName | translate}}</b></span>
+            <app-icon [icon]="'arrow-bottom'"></app-icon>
           </div>
           <div class="content">
             <ul class="sidebar-category-list">
@@ -22,7 +23,7 @@
               <div class="category-item"
                   *ngFor="let category of categories" [ngClass]="activeCategoryId === category.categoryID ? 'active' : ''">
                       <h4
-                        (click)="filterByCategory(category.categoryID)">{{'category.' + category.title | translate}}</h4>
+                        (click)="filterByCategory(category.categoryID, category.title)">{{'category.' + category.title | translate}}</h4>
               </div>
             </ul>
           </div>

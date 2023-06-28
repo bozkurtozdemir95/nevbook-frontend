@@ -98,6 +98,9 @@
       text-transform: capitalize;
       padding-bottom: $space;
       border-bottom: 1px solid $border-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       &:before {
         content: "";
@@ -107,6 +110,25 @@
         width: 50px;
         height: 2px;
         background: $primary;
+      }
+
+      app-icon {
+        display: none;
+
+        ::ng-deep svg {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      b {
+        font-size: 16px;
+      }
+    }
+
+    &.active {
+      .title {
+        color: $primary;
       }
     }
   }
@@ -157,6 +179,19 @@
       top: unset;
 
       .sidebar-box {
+
+        .title {
+          font-size: 20px;
+
+          b {
+            font-size: 16px;
+          }
+
+          app-icon {
+            display: flex;
+          }
+        }
+
         .content {
           max-height: 0;
           transition: $transition;

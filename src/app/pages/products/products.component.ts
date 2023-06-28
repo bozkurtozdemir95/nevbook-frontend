@@ -13,6 +13,7 @@ export class ProductsComponent {
   categories = categoryData;
   filteredArray: any;
   activeCategoryId: any;
+  activeCategoryName: string = "all";
   activeClass: any;
   page = 1;
 
@@ -55,7 +56,7 @@ export class ProductsComponent {
     });
   }
 
-  filterByCategory(categoryID: number): void {
+  filterByCategory(categoryID: number, categoryName: string): void {
     this.filteredArray = [];
     this.allProducts.map((product: any) => {
         if (product.categoryID === categoryID) {
@@ -63,7 +64,11 @@ export class ProductsComponent {
         }
       }
     );
-
+    if (window.innerWidth <= 992) {
+      this.categoriesCollapsed = true;
+    }
+    this.activeCategoryName = categoryName;
+    console.log(categoryName);
     this.activeCategoryId = categoryID;
     this.activeClass = '';
     this.ui.scrollTop();
@@ -73,6 +78,7 @@ export class ProductsComponent {
     this.filteredArray = this.allProducts;
     this.activeClass = 'active';
     this.activeCategoryId = '';
+    this.activeCategoryName = 'all';
   }
 
   toggleCategories() {
