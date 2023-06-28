@@ -3,6 +3,7 @@
 #header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 9999;
   margin-bottom: 0;
   padding: $space * 2 0;
@@ -23,12 +24,15 @@
       color: $title;
       cursor: pointer;
     }
-
   }
 
   .header-menu {
     display: flex;
     text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     ul {
       display: flex;
@@ -81,6 +85,12 @@
         &::ng-deep svg {
           color: $text;
         }
+      }
+
+      ::ng-deep svg {
+        height: 22px;
+        max-width: 26px;
+        color: $title;
       }
     }
 
@@ -170,19 +180,24 @@
           padding-bottom: 70px;
           width: 100%;
 
+
           ::ng-deep {
             .book-item {
               display: flex;
               flex-direction: row;
               align-items: flex-start;
               margin-bottom: $space * 3;
+              box-shadow: none;
 
               .cover {
+                padding: 0;
+
                 img {
                   width: 78px;
                   min-width: 78px;
                   height: 110px;
                   white-space: nowrap;
+                  box-shadow: $shadow-book;
                 }
 
                 .actions {
@@ -191,6 +206,9 @@
               }
 
               .text {
+                height: unset;
+                padding: $space;
+
                 h5 {
                   font-size: 15px;
                   overflow: hidden;
@@ -280,9 +298,8 @@
           justify-content: center;
           border: 1px solid $border-light;
           transition: all .25s ease 0s;
-          width: 42px;
           height: 30px;
-          padding: 0 $space;
+          padding: 0 $space/2;
 
           &:hover, &.active {
             background: $border-light;
@@ -294,7 +311,7 @@
 
           ::ng-deep svg {
             height: 12px;
-            max-width: 24px;
+            max-width: 18px;
             color: $title;
           }
 
@@ -361,6 +378,7 @@
     padding: $space 0;
 
     .header-left {
+
       .logo {
         font-size: 28px;
       }

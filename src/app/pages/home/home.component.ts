@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   async fetchData() {
     await this.productData.map((e: any) => {
-      switch (e.parentID) {
+      switch (e.categoryID) {
         case 5:
           this.filteredProducts[0].push(e);
           break;

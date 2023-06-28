@@ -89,15 +89,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .featured-book-list {
-    .book-item {
-      .cover {
-        img {
-          height: 320px;
-        }
-      }
-    }
-  }
+
 }
 
 @media only screen and (max-width: 992px) {
@@ -117,25 +109,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .featured-book-list {
-    .book-item {
-      .cover {
-        img {
-          height: 280px;
-        }
-      }
-    }
-  }
+
 }
 
 @media only screen and (max-width: 480px) {
-  .featured-book-list {
-    .book-item {
-      .cover {
-        img {
-          height: 260px;
-        }
-      }
-    }
-  }
+
 }

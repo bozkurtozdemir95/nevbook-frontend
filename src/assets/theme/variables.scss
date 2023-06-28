@@ -24,7 +24,6 @@ $danger: rgb(250, 0, 33);
 $border-color: rgba(143, 143, 143, 0.25);
 $border-light: rgba(143, 143, 143, 0.1);
 
-
 /***********************************
                 SPACING
 *************************************/
@@ -38,3 +37,7 @@ $shadow: 0 1px 4px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 0, 0, 0.04);
 $shadow-dark: 0 1px 4px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.12);
 $shadow-reverse: 0 -1px 4px rgba(0, 0, 0, 0.02), 0 -1px 4px rgba(0, 0, 0, 0.04);
 $shadow-dark-reverse: 0 -1px 4px rgba(0, 0, 0, 0.06), 0 -1px 4px rgba(0, 0, 0, 0.12);
+$shadow-book: 0 0 4px 0 rgba(43, 43, 43, .2);
+$shadow-book-hover: 0 0 12px 0 rgba(43, 43, 43, .25);
+
+$transition: all .5s ease 0s;

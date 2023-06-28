@@ -1,7 +1,7 @@
 <div id="shop">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
+    <div class="row align-start">
+      <div class="col-lg-3 sticky-top">
         <form id="search">
           <div class="custom-input with-button">
             <input type="text" name="search" placeholder="Search products..." (input)="onSearchChange($event)">
@@ -10,8 +10,8 @@
             </button>
           </div>
         </form>
-        <div class="sidebar-box mt-5">
-          <div class="title">
+        <div class="sidebar-box mt-5" [class.active]="!categoriesCollapsed">
+          <div class="title" (click)="toggleCategories()">
             <span translate>categories</span>
           </div>
           <div class="content">
@@ -19,18 +19,10 @@
               <div class="category-item" (click)="clearCategoryFilter()">
                 <h4 [ngClass]="activeClass">All</h4>
               </div>
-              <div class="category-item" *ngFor="let category of organizedCategories" [class.active]="openedCategory === category.categoryID">
-                <div class="category-collapse" (click)="toggleCategoryCollapse(category.categoryID)"
-                     [ngClass]="activeCategoryId === category.categoryID ? 'active' : ''">
-                  <h4 (click)="filterByCategory(category.categoryID)">{{category.title}}
-                    ({{category.subMenu.length}})</h4>
-                </div>
-                <ul>
-                  <li *ngFor="let subitem of category.subMenu">
-                    <span (click)="filterByCategory(subitem.categoryID)"
-                        [ngClass]="activeCategoryId === subitem.categoryID ? 'active' : ''">{{subitem.title}}</span>
-                  </li>
-                </ul>
+              <div class="category-item"
+                  *ngFor="let category of categories" [ngClass]="activeCategoryId === category.categoryID ? 'active' : ''">
+                      <h4
+                        (click)="filterByCategory(category.categoryID)">{{'category.' + category.title | translate}}</h4>
               </div>
             </ul>
           </div>
@@ -40,27 +32,27 @@
         <div class="products-row-wrapper shop-filter-bar">
           <div class="custom-input">
             <select name="filterDate" id="filterDate" (change)="onChangeDate($event)">
-              <option value="0">Filter By Date</option>
-              <option value="1">Sort By Latest</option>
-              <option value="2">Sort By Oldest</option>
+              <option value="0">Sort By Date</option>
+              <option value="1">Latest</option>
+              <option value="2">Oldest</option>
             </select>
-            <!--<app-icon [icon]="'arrow-bottom'"></app-icon>-->
+            <app-icon [icon]="'arrow-bottom'"></app-icon>
           </div>
           <div class="custom-input">
             <select name="filterPrice" id="filterPrice" (change)="onChangePrice($event)">
-              <option value="0">Filter By Price</option>
-              <option value="1">Sort By Price (low to high)</option>
-              <option value="2">Sort By Price (high to low)</option>
+              <option value="0">Sort By Price</option>
+              <option value="1">low to high</option>
+              <option value="2">high to low</option>
             </select>
-            <!--<app-icon [icon]="'arrow-bottom'"></app-icon>-->
+            <app-icon [icon]="'arrow-bottom'"></app-icon>
           </div>
           <div class="custom-input">
-            <p class="product-count">{{this.filteredArray.length}} Products Found</p>
+            <p class="product-count">{{this.filteredArray.length}} Products</p>
           </div>
         </div>
         <div class="products-row-wrapper mt-5 slideInUp">
           <div class="row">
-            <div class="col-xl-3 col-lg-6 col-sm-6 col-xs-6" *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
+            <div class="col-xl-3 col-lg-4 col-xs-6 product-wrapper" *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
               <app-product [product]="product"></app-product>
             </div>
 
@@ -73,7 +65,7 @@
         <ngb-pagination
           [(page)]="page"
           [pageSize]="12"
-          [maxSize]="10"
+          [maxSize]="3"
           [collectionSize]="filteredArray.length"></ngb-pagination>
       </div>
     </div>

@@ -11,24 +11,23 @@ import {UiService} from "../../services/ui.service";
 export class ProductsComponent {
   allProducts = productData;
   categories = categoryData;
-  organizedCategories: any = [];
   filteredArray: any;
   activeCategoryId: any;
   activeClass: any;
-  openedCategory = 0;
-  page= 1;
+  page = 1;
+
+  categoriesCollapsed = true;
+
+
+  pricedProducts: any = [];
+  randomPrices = [1199, 1699, 2499, 2999, 3199, 3499, 3999, 4599, 5499, 5999];
 
   constructor(public ui: UiService) {
 
-    this.categories.filter((e: any) => {
-      if (e.parentID === 0) {
-        e = {...e, subMenu: []}
-        this.organizedCategories.push(e);
-      } else {
-        this.organizedCategories[e.parentID - 1].subMenu.push(e);
-        console.log(this.organizedCategories)
-      }
-    });
+    this.allProducts.map((e: any) => {
+      e.price = this.randomPrices[Math.floor(Math.random() * 9) + 1];
+      this.pricedProducts.push(e)
+    })
   }
 
   ngOnInit(): void {
@@ -59,10 +58,12 @@ export class ProductsComponent {
   }
 
   onSearchChange(filter: any) {
-    this.filteredArray = this.allProducts.filter((item: any) => {
-        if (item.name.toLowerCase().indexOf(filter.target.value.toLowerCase()) === -1) {
-          this.filteredArray = this.allProducts;
+    // @ts-ignore
+    this.filteredArray = this.allProducts.filter(item => {
+        if (item.name.toString().toLowerCase().indexOf(filter.target.value.toLowerCase()) !== -1) {
+
         }
+        this.filteredArray = this.allProducts;
       }
     );
   }
@@ -70,12 +71,12 @@ export class ProductsComponent {
   filterByCategory(categoryID: number): void {
     this.filteredArray = [];
     this.allProducts.map((product: any) => {
-        const id = product.categoryID <= 23 ? product.categoryID : product.parentID
-        if (id === categoryID) {
+        if (product.categoryID === categoryID) {
           this.filteredArray.push(product);
         }
       }
     );
+
     this.activeCategoryId = categoryID;
     this.activeClass = '';
     this.ui.scrollTop();
@@ -87,7 +88,9 @@ export class ProductsComponent {
     this.activeCategoryId = '';
   }
 
-  toggleCategoryCollapse(id: number) {
-    id === this.openedCategory ? this.openedCategory = 0 : this.openedCategory = id;
+  toggleCategories() {
+    if (window.innerWidth <= 992) {
+      this.categoriesCollapsed = !this.categoriesCollapsed;
+    }
   }
 }

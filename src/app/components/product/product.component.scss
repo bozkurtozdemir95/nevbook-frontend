@@ -4,39 +4,38 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  gap: $space;
   margin-bottom: $space * 2;
-  flex-grow: 1;
+  box-shadow: $shadow-book;
+  transition: all .25s ease 0s;
 
   .cover {
     position: relative;
-    box-shadow: 0 0 12px 0 rgba(43, 43, 43, .3);
-
-    img {
-      height: 380px;
-    }
+    padding: $space * 2;
+    padding-bottom: 0;
+    overflow: hidden;
 
     .actions {
-      display: none;
+      display: flex;
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, .3);
+      top: $space * 2;
+      left: $space * 2;
+      width: calc(100% - $space * 4);
+      height: calc(100% - $space * 2);
+      background: rgba(0, 0, 0, .2);
       align-items: center;
       justify-content: center;
       gap: $space * 3;
+      opacity: 0;
       transition: all .25s ease 0s;
 
       button {
         width: 40px;
         height: 40px;
         color: #fff;
-        border: 1px solid $primary;
         background: $primary;
         border-radius: 2px;
         animation: pop .2s forwards;
+        border: 1px solid #ffffff80;
 
         ::ng-deep svg {
           width: 24px;
@@ -48,16 +47,28 @@
         }
       }
     }
+
+    img {
+
+    }
   }
 
   .text {
     display: flex;
     flex-direction: column;
     gap: $space / 2;
+    height: 150px;
+    padding: 20px;
+    background: transparent;
 
     h5 {
       font-size: 18px;
       color: $title;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
 
       &:hover {
         color: $primary;
@@ -74,13 +85,17 @@
       font-family: $title-font;
       font-size: 18px;
       color: $primary;
+      font-weight: 600;
     }
   }
 
   &:hover {
+    box-shadow: $shadow-book-hover;
+    transform: translateY(-3px);
+
     .cover {
       .actions {
-        display: flex;
+        opacity: 1;
       }
     }
   }

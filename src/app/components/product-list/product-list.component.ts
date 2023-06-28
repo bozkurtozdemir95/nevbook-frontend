@@ -17,7 +17,6 @@ export class ProductListComponent {
   }
 
   ngOnInit(): void {
-    console.log(this.products)
   }
 
 

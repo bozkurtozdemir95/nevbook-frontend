@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
 
   getCartItems(): void {
     this.cartService.getItems();
-    console.log(this.cartService.items);
   }
 
 
