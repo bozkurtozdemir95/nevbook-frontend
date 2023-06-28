@@ -339,7 +339,9 @@ h1, h2, h3, h4, h5, h6 {
       top: 0;
       right: 0;
       width: 36px;
+      min-width: 36px;
       height: 36px;
+      min-height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -494,6 +496,20 @@ ngb-pagination {
   .page-section {
     padding: $space;
   }
+
+  ngb-pagination {
+
+    .page-item {
+      width: 36px;
+      height: 36px;
+
+
+      .page-link {
+        font-size: 12px;
+      }
+    }
+  }
+
 }
 
 @media only screen and (max-width: 600px) {

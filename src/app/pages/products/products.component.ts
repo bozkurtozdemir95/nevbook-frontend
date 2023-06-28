@@ -50,14 +50,9 @@ export class ProductsComponent {
   }
 
   onSearchChange(filter: any) {
-    // @ts-ignore
     this.filteredArray = this.allProducts.filter(item => {
-        if (item.name.toString().toLowerCase().indexOf(filter.target.value.toLowerCase()) !== -1) {
-
-        }
-        this.filteredArray = this.allProducts;
-      }
-    );
+      return item.name.toLowerCase().includes(filter.target.value);
+    });
   }
 
   filterByCategory(categoryID: number): void {
