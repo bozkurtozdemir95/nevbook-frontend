@@ -52,7 +52,7 @@ export class ProductsComponent {
 
   onSearchChange(filter: any) {
     this.filteredArray = this.allProducts.filter(item => {
-      return item.name.toLowerCase().includes(filter.target.value);
+      return item.name.toLowerCase().includes(filter.target.value.toLowerCase());
     });
   }
 
@@ -68,7 +68,6 @@ export class ProductsComponent {
       this.categoriesCollapsed = true;
     }
     this.activeCategoryName = categoryName;
-    console.log(categoryName);
     this.activeCategoryId = categoryID;
     this.activeClass = '';
     this.ui.scrollTop();

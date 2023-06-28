@@ -4,10 +4,7 @@
       <div class="col-lg-3 sticky-top">
         <form id="search">
           <div class="custom-input with-button">
-            <input type="text" name="search" placeholder="Search products..." (input)="onSearchChange($event)">
-            <button type="submit" class="primary-button">
-              <app-icon [icon]="'search'"/>
-            </button>
+            <input type="text" name="search" placeholder="{{'search' | translate}}" (input)="onSearchChange($event)">
           </div>
         </form>
         <div class="sidebar-box mt-5" [class.active]="!categoriesCollapsed">
@@ -21,9 +18,10 @@
                 <h4 [ngClass]="activeClass">All</h4>
               </div>
               <div class="category-item"
-                  *ngFor="let category of categories" [ngClass]="activeCategoryId === category.categoryID ? 'active' : ''">
-                      <h4
-                        (click)="filterByCategory(category.categoryID, category.title)">{{'category.' + category.title | translate}}</h4>
+                   *ngFor="let category of categories"
+                   [ngClass]="activeCategoryId === category.categoryID ? 'active' : ''">
+                <h4
+                  (click)="filterByCategory(category.categoryID, category.title)">{{'category.' + category.title | translate}}</h4>
               </div>
             </ul>
           </div>
@@ -53,7 +51,8 @@
         </div>
         <div class="products-row-wrapper mt-5 slideInUp">
           <div class="row">
-            <div class="col-xl-3 col-lg-4 col-xs-6 product-wrapper" *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
+            <div class="col-xl-3 col-lg-4 col-xs-6 product-wrapper"
+                 *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
               <app-product [product]="product"></app-product>
             </div>
 
