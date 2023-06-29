@@ -77,6 +77,10 @@
               "browserTarget": "nevbook-frontend:build:development"
             }
           },
+          "options": {
+            "browserTarget": "nevbook-frontend:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

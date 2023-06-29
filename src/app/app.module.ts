@@ -11,7 +11,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {ProductComponent} from './components/product/product.component';
 import {CheckoutComponent} from './pages/checkout/checkout.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {IconComponent} from './components/icon/icon.component';
@@ -21,7 +21,12 @@ import {AboutComponent} from './pages/about/about.component';
 import {ContactComponent} from './pages/contact/contact.component';
 import {BookComponent} from './pages/book/book.component';
 import {ProductListComponent} from './components/product-list/product-list.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
+import {AuthInterceptor} from "./services/auth/auth-interceptor.service";
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -42,13 +47,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutComponent,
     ContactComponent,
     BookComponent,
-    ProductListComponent
+    ProductListComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     NgbCarousel,
+    ReactiveFormsModule,
     FormsModule,
     TranslateModule.forRoot({
       loader: {
@@ -60,7 +70,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

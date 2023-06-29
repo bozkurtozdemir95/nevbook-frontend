@@ -12,6 +12,8 @@
 @import './assets/theme/variables.scss';
 @import './assets/theme/grid.scss';
 
+@import 'ngx-toastr/toastr';
+
 ::-webkit-scrollbar {
   width: 4px;
   background-color: transparent;
@@ -421,6 +423,47 @@ ngb-pagination {
 
       }
     }
+  }
+}
+
+
+.toast-container {
+
+  .toast-success, .toast-error, .toast-info, .toast-warning {
+    background-color: #fff;
+    box-shadow: $shadow-book;
+  }
+
+  .ngx-toastr {
+    color: $text;
+  }
+
+  .toast-success {
+    background-image: url("./assets/img/check.png") !important;
+
+    .toast-title {
+      color: $success;
+    }
+  }
+
+  .toast-error {
+    background-image: url("./assets/img/error.png") !important;
+
+    .toast-title {
+      color: $danger;
+    }
+  }
+
+  .toast-info {
+    background-image: url("./assets/img/info.png") !important;
+
+    .toast-title {
+      color: $info;
+    }
+  }
+
+  .toast-message {
+    font-size: 12px;
   }
 }
 

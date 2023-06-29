@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {ToastrService} from "ngx-toastr";
+import {Toastr} from "./toastr.service";
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +8,7 @@ import {Injectable} from '@angular/core';
 export class CartService {
   items: any = [];
 
-  constructor() {
+  constructor( private toastr: Toastr) {
   }
 
 
@@ -15,17 +17,18 @@ export class CartService {
     if (!productExistInCart) {
       this.items.push(product);
       localStorage.setItem('cart', JSON.stringify(this.items));
-      console.log('Product added successfully');
+      this.toastr.success('Product added successfully');
       return;
     } else {
-      console.log('Product has already been added');
+      this.toastr.error('Product has already been added');
     }
   }
   removeFromCart(value: any): void {
     const index: number = this.items.indexOf(value);
     this.items.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(this.items));
-    console.log('Product removed from your shopping cart');
+    this.toastr.success('Product removed from your shopping cart');
+
   }
 
   clearCart(): void {

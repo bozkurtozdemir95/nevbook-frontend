@@ -21,7 +21,10 @@ export class HeaderComponent implements OnInit {
     {id: 2, key: 'mk', value: 'македонски'},
   ];
 
-  constructor(public langService: TranslateService, public cartService: CartService) {
+  constructor(public langService: TranslateService, public cartService: CartService, public category: CategoryService) {
+    category.getAll().subscribe((e: any) => {
+      console.log(e);
+    })
   }
 
   ngOnInit() {
