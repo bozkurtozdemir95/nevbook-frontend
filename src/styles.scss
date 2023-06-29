@@ -337,7 +337,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .custom-input {
-
   &.with-button {
     position: relative;
 
@@ -373,6 +372,38 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 13px;
     line-height: 24px;
     background: transparent;
+  }
+
+  label {
+    margin-bottom: $space / 2;
+    font-size: 13px;
+  }
+}
+
+.auth-wrapper {
+  padding: 30px 10px;
+  min-height: 70vh;
+  margin: 0 auto;
+
+  h3 {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: $title-font;
+    margin-bottom: $space * 3;
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space;
+    margin-top: $space * 3;
+
+    button {
+      width: 100%;
+      max-width: 300px;
+    }
   }
 }
 

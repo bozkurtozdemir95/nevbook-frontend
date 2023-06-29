@@ -1,1 +1,54 @@
-<p>profile works!</p>
+<div id="shop">
+  <div class="container">
+    <div class="row align-start">
+      <div class="auth-wrapper" *ngIf="!auth.user">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="login-wrapper">
+              <app-login></app-login>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="register-wrapper">
+              <app-register></app-register>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-wrapper" *ngIf="auth.user">
+        <div class="row">
+          <div class="col-lg-4">
+            <ul ngbNav #nav="ngbNav" class="nav-tabs">
+              <li ngbNavItem>
+                <button ngbNavLink>Dashboard</button>
+                <ng-template ngbNavContent>
+                  <p>
+                    Hello {{auth.user.name}}, <br>
+                    From your account dashboard you can view your recent orders, and edit your password and account details.
+                  </p>
+                </ng-template>
+              </li>
+              <li ngbNavItem>
+                <button ngbNavLink>Orders</button>
+                <ng-template ngbNavContent>
+
+                </ng-template>
+              </li>
+              <li ngbNavItem>
+                <button ngbNavLink>Settings</button>
+                <ng-template ngbNavContent>Second content</ng-template>
+              </li>
+              <li ngbNavItem>
+                <button ngbNavLink (click)="logout()">Logout</button>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <div [ngbNavOutlet]="nav"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

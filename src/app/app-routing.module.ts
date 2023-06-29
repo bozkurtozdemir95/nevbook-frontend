@@ -13,6 +13,7 @@ import {LoginComponent} from "./pages/login/login.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'shop', component: ProductsComponent },
   { path: 'shop/book/:id', component: BookComponent },
@@ -20,8 +21,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: LoginComponent },
 ];
 
 @NgModule({

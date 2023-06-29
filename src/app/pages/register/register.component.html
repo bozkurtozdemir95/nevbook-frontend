@@ -1,6 +1,6 @@
 <div class="auth-wrapper">
   <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <h3 class="h3 mb-3 font-weight-normal text-center">Register User</h3>
+    <h3>Register</h3>
     <!-- Errors -->
     <div *ngIf="errors?.name" class="alert alert-danger mt-3">
       {{ errors?.name }}
@@ -15,28 +15,24 @@
       {{ errors?.password_confirmation }}
     </div>
     <!-- Signup form -->
-    <div class="form-group">
+    <div class="custom-input">
       <label>Name</label>
-      <input type="text" class="form-control" formControlName="name" />
+      <input type="text" formControlName="name" />
     </div>
-    <div class="form-group">
+    <div class="custom-input">
       <label>Email address</label>
-      <input type="email" class="form-control" formControlName="email" />
+      <input type="email" formControlName="email" />
     </div>
-    <div class="form-group">
+    <div class="custom-input">
       <label>Password</label>
-      <input type="password" class="form-control" formControlName="password" />
+      <input type="password" formControlName="password" />
     </div>
-    <div class="form-group">
+    <div class="custom-input">
       <label>Confirm Password</label>
-      <input
-        type="password"
-        class="form-control"
-        formControlName="password_confirmation"
-      />
+      <input type="password" formControlName="password_confirmation"/>
     </div>
-    <button type="submit" class="btn btn-block btn-primary">
-      Register User
-    </button>
+    <div class="buttons">
+      <button type="submit" class="custom-button">Register User</button>
+    </div>
   </form>
 </div>

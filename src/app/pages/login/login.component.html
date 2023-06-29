@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="auth-wrapper">
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h3>Login</h3>
+    <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+      {{ errors?.email }}
+    </div>
+    <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+      {{ errors?.password }}
+    </div>
+    <div class="custom-input">
+      <label>Email address</label>
+      <input type="email" formControlName="email" />
+    </div>
+    <div class="custom-input">
+      <label>Password</label>
+      <input type="password" formControlName="password" />
+    </div>
+    <div class="buttons">
+      <button type="submit" class="custom-button">Login</button>
+    </div>
+  </form>
+</div>

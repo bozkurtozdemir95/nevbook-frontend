@@ -1,0 +1,45 @@
+@import '../../../assets/theme/variables';
+
+.form-signin {
+  gap: $space * 2;
+}
+
+.profile-wrapper {
+  padding: $space * 3 $space;
+  min-height: 70vh;
+
+  .nav-tabs {
+    border: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+
+    .nav-item {
+      width: 100%;
+      margin: 0;
+
+      .nav-link {
+        width: 100%;
+        border: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid $border-color;
+        font-size: 14px;
+        font-weight: 500;
+        color: $text;
+        transition: $transition;
+
+        &.active, hover {
+          color: $primary;
+        }
+      }
+
+      &:last-child {
+        .nav-link {
+          border: 0;
+        }
+      }
+    }
+  }
+}

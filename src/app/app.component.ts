@@ -1,6 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {UiService} from "./services/ui.service";
+import {AuthService} from "./services/auth/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,11 @@ export class AppComponent {
   title = 'Nevbook';
   scrolled = false;
 
-  constructor(translate: TranslateService, public ui: UiService) {
+  constructor(translate: TranslateService, public ui: UiService, private auth: AuthService) {
     translate.setDefaultLang('en');
     translate.use('en');
+    const user: any = localStorage.getItem('user');
+    auth.user = JSON.parse(user);
   }
 
 

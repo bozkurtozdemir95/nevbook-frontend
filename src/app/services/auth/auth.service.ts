@@ -15,19 +15,28 @@ export class User {
   providedIn: 'root',
 })
 export class AuthService {
+
+  user: any;
+
   constructor(private http: HttpClient) {
   }
+
   api = environment.serverURL;
 
   register(user: User): Observable<any> {
-    return this.http.post(this.api + '/api/auth/register', user);
+    return this.http.post(this.api + '/api/register', user);
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<any>(this.api + '/api/auth/login', user);
+    return this.http.post<any>(this.api + '/api/login', user);
+  }
+
+  logout(): Observable<any> {
+    this.user = null;
+    return this.http.get<any>(this.api + '/api/logout');
   }
 
   profileUser(): Observable<any> {
-    return this.http.get(this.api + '/api/auth/user-profile');
+    return this.http.get(this.api + '/api/user-profile');
   }
 }
