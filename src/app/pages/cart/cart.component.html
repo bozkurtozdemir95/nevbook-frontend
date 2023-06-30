@@ -1,1 +1,69 @@
-<p>cart works!</p>
+<div id="cart">
+  <div class="container">
+    <div class="row">
+      <table class="table table-borderless">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <button class="transparent-button close">
+              <app-icon [icon]="'close'"/>
+            </button>
+          </td>
+          <td><img src="../../../assets/img/products/102769.webp" alt="NevBook"></td>
+          <td>Art Fashion</td>
+          <td>15000 MKD</td>
+          <td>
+            <div class="buy">
+              <app-quantity/>
+            </div>
+          </td>
+          <td>12000 MKD</td>
+        </tr>
+        <tr>
+          <td>
+            <button class="transparent-button close">
+              <app-icon [icon]="'close'"/>
+            </button>
+          </td>
+          <td><img src="../../../assets/img/products/102769.webp" alt="NevBook"></td>
+          <td>Art Fashion</td>
+          <td>15000 MKD</td>
+          <td>
+            <div class="buy">
+              <app-quantity/>
+            </div>
+          </td>
+          <td>12000 MKD</td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <h6 class="text-right">TOTAL</h6>
+          </td>
+          <td>24000 MKD</td>
+        </tr>
+        <tr>
+          <td colspan="6">
+         <div class="promo">
+           <div class="custom-input horizontal">
+             <label for="promo">Promo Code</label>
+             <input type="text" id="promo">
+           </div>
+           <button class="custom-button">Apply Code</button>
+         </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

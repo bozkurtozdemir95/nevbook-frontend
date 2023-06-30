@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
+  quantity = 1;
 
+  minus() {
+    this.quantity > 1 ? this.quantity = this.quantity - 1 : this.quantity = 1;
+  }
+
+  plus() {
+    this.quantity = this.quantity + 1;
+  }
 }

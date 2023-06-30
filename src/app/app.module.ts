@@ -27,6 +27,7 @@ import {ToastrModule} from "ngx-toastr";
 import {AuthInterceptor} from "./services/auth/auth-interceptor.service";
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { QuantityComponent } from './components/quantity/quantity.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,7 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BookComponent,
     ProductListComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    QuantityComponent
   ],
   imports: [
     CommonModule,

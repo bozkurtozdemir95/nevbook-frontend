@@ -1,0 +1,57 @@
+@import '../../../assets/theme/variables';
+
+#cart {
+  padding: $space * 3 0;
+  min-height: 90vh;
+
+  table {
+    img {
+      width: 70px;
+    }
+
+    tr {
+      border-bottom: 1px solid $border-light;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+
+    td {
+      vertical-align: middle;
+    }
+
+    h6 {
+      font-family: $title-font;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+  .close {
+    width: 30px;
+    height: 30px;
+    color: $title;
+    border: 1px solid $border-color;
+    border-radius: 50%;
+    transition: $transition;
+
+    ::ng-deep svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    &:hover {
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  .promo {
+    padding: $space * 2 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: $space * 2;
+  }
+}

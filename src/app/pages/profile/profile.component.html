@@ -1,4 +1,4 @@
-<div id="shop">
+<div id="profile">
   <div class="container">
     <div class="row align-start">
       <div class="auth-wrapper" *ngIf="!auth.user">
@@ -25,15 +25,120 @@
                 <ng-template ngbNavContent>
                   <p>
                     Hello {{auth.user.name}}, <br>
-                    From your account dashboard you can view your recent orders, and edit your password and account details.
+                    From your account dashboard you can view your recent orders, and edit your password and account
+                    details.
                   </p>
                 </ng-template>
               </li>
               <li ngbNavItem>
                 <button ngbNavLink>Orders</button>
-                <ng-template ngbNavContent>
-
+                <ng-template ngbNavContent class="orders">
+                  <table class="table table-bordered" *ngIf="!selectedOrder">
+                    <thead>
+                    <tr>
+                      <th scope="col">Order</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Total</th>
+                      <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>#8315</td>
+                      <td>June 30, 2023</td>
+                      <td>Processing</td>
+                      <td>15000 MKD for 4 items</td>
+                      <td class="link" (click)="viewOrder(8315)">View</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="order-details" *ngIf="selectedOrder">
+                    <button class="transparent-button" (click)="backToOrders()">
+                      <app-icon [icon]="'arrow-left'"/>
+                      Back
+                    </button>
+                    <ul>
+                      <li>
+                        <h6>Order ID</h6>
+                        <span>#8315</span>
+                      </li>
+                      <li>
+                        <h6>Date</h6>
+                        <span>June 30, 2023</span>
+                      </li>
+                      <li>
+                        <h6>Email</h6>
+                        <span>test@gmail.com</span>
+                      </li>
+                      <li>
+                        <h6>Total</h6>
+                        <span>15000 MKD</span>
+                      </li>
+                      <li>
+                        <h6>Payment Method</h6>
+                        <span>Cash on delivery</span>
+                      </li>
+                    </ul>
+                    <h4>Order Details</h4>
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>A book x2</td>
+                        <td>10000 MKD</td>
+                      </tr>
+                      <tr>
+                        <td>A different book x3</td>
+                        <td>6000 MKD</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Subtotal</td>
+                        <td>16000 MKD</td>
+                      </tr>
+                      <tr>
+                        <td>Discount (FINKY)</td>
+                        <td>20%</td>
+                      </tr>
+                      <tr>
+                        <td>Payment Method</td>
+                        <td>Cash on delivery</td>
+                      </tr>
+                      <tr>
+                        <td>Total</td>
+                        <td>12800 MKD</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="bill mt-3">
+                      <h4>Billing Address</h4>
+                      <ul>
+                        <li>Name on card</li>
+                        <li>Aasdasdasdasd</li>
+                        <li>Skopje</li>
+                        <li>Skopje</li>
+                        <li>0112</li>
+                      </ul>
+                    </div>
+                  </div>
                 </ng-template>
+              </li>
+              <li ngbNavItem>
+                <button ngbNavLink>Users</button>
+                <ng-template ngbNavContent>Second content</ng-template>
+              </li>
+              <li ngbNavItem>
+                <button ngbNavLink>Promo Codes</button>
+                <ng-template ngbNavContent>Second content</ng-template>
               </li>
               <li ngbNavItem>
                 <button ngbNavLink>Settings</button>

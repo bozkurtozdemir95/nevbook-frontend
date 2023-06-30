@@ -1,18 +1,22 @@
 import {Injectable} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 import {Toastr} from "./toastr.service";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   items: any = [];
+  api = environment.serverURL;
 
-  constructor( private toastr: Toastr) {
+  constructor( private toastr: Toastr, private http: HttpClient) {
   }
 
 
   addToCart(product: any): void {
+    console.log(product);
     const productExistInCart = this.items.find(({ productID }: any) => productID === product.productID);
     if (!productExistInCart) {
       this.items.push(product);
@@ -44,5 +48,9 @@ export class CartService {
     } else {
       return this.items;
     }
+  }
+
+  calculateTotal(){
+
   }
 }

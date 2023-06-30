@@ -136,6 +136,9 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: none;
 }
 
+.text-right {
+  text-align: right;
+}
 
 #home {
   .carousel {
@@ -332,9 +335,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.tab-content {
-  padding: $space * 3 0;
-}
 
 .custom-input {
   &.with-button {
@@ -361,6 +361,17 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
+  &.horizontal {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    label {
+      margin-right: $space * 2;
+      margin-bottom: 0;
+    }
+  }
+
   input {
     margin: 0;
     width: 100%;
@@ -377,6 +388,25 @@ h1, h2, h3, h4, h5, h6 {
   label {
     margin-bottom: $space / 2;
     font-size: 13px;
+  }
+}
+
+table {
+  th {
+    font-family: $title-font;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  td {
+    &.link {
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 }
 

@@ -1,0 +1,9 @@
+<div class="count-input">
+  <button class="minus" (click)="minus()">
+    <app-icon [icon]="'remove'"></app-icon>
+  </button>
+  <input type="number" [ngModel]="quantity" readonly/>
+  <button class="plus" (click)="plus()">
+    <app-icon [icon]="'add'"></app-icon>
+  </button>
+</div>

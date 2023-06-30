@@ -11,7 +11,9 @@ export class ProfileComponent {
 
   showLogin = true;
 
-  constructor(public auth: AuthService,  public router: Router) {
+  selectedOrder = null;
+
+  constructor(public auth: AuthService, public router: Router) {
   }
 
 
@@ -24,5 +26,13 @@ export class ProfileComponent {
     localStorage.removeItem('user');
 
     this.router.navigate(['home']);
+  }
+
+  viewOrder(id: any) {
+    this.selectedOrder = id;
+  }
+
+  backToOrders() {
+    this.selectedOrder = null;
   }
 }
