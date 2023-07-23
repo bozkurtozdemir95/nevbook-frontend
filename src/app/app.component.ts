@@ -17,8 +17,9 @@ export class AppComponent {
     translate.setDefaultLang('en');
     translate.use('en');
     const user: any = localStorage.getItem('user');
-    auth.user = JSON.parse(user);
-
+    if(user){
+      auth.user = JSON.parse(user);
+    }
   }
 
 

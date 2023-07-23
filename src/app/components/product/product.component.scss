@@ -47,10 +47,6 @@
         }
       }
     }
-
-    img {
-
-    }
   }
 
   .text {
@@ -78,6 +74,14 @@
     span {
       font-style: italic;
       font-size: 12px;
+
+      &.quantity {
+        margin-left: $space;
+        font-size: 14px;
+        color: $text;
+        font-family: $font;
+        font-style: normal;
+      }
     }
 
     .price {

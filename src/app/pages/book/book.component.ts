@@ -19,7 +19,6 @@ export class BookComponent {
         if(e.productID === +params['id']){
           this.book = e;
         }
-        console.log(this.book);
       })
     });
   }

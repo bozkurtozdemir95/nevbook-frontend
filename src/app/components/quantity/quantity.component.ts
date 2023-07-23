@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-quantity',
@@ -7,14 +7,25 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class QuantityComponent {
 
-  @Output() quantity = 1;
+  @Input() quantity: any;
+  @Output('update') changeQuantity: EventEmitter<number> = new EventEmitter<number>();
+
+  constructor() {
+  }
 
   minus() {
-    this.quantity > 1 ? this.quantity = this.quantity - 1 : this.quantity = 1;
-
+    this.quantity > 1 ? this.quantity -= 1 : this.quantity = 1;
+    this.changeQuantity.emit(this.quantity);
   }
 
   plus() {
-    this.quantity = this.quantity + 1;
+    this.quantity += 1;
+    this.changeQuantity.emit(this.quantity);
+  }
+
+  getQuantity() {
+    return this.changeQuantity.subscribe((e: any) => {
+      return e;
+    })
   }
 }

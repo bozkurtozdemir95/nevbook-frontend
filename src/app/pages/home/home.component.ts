@@ -82,7 +82,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.filteredProducts[1] = this.filteredProducts[1].slice(0, 8);
     this.filteredProducts[2] = this.filteredProducts[2].slice(0, 8);
     this.filteredProducts[3] = this.filteredProducts[3].slice(0, 8);
-
   }
 
   selectButton(e: any) {

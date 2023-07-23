@@ -258,30 +258,56 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
   height: 40px;
 
-  &:hover {
-    transform: translateY(2px);
-    background: $primary-hover;
+  &:not([disabled]) {
+    &:hover {
+      transform: translateY(2px);
+      background: $primary-hover;
+    }
+
+    &:active {
+      transform: translateY(4px) scale(.99);
+      background: $primary-dark;
+    }
   }
 
-  &:active {
-    transform: translateY(4px) scale(.99);
-    background: $primary-dark;
-  }
+  &:disabled {
+    background: $primary-disabled;
 
+    &:hover {
+      background: $primary-disabled;
+    }
+
+    &:active {
+      background: $primary-disabled;
+    }
+  }
 
   &.bordered {
     background: transparent;
     border-color: $primary;
     color: $primary;
 
-    &:hover {
-      background: $primary-hover;
-      color: #fff;
+    &:not([disabled]) {
+      &:hover {
+        background: $primary-hover;
+        color: #fff;
+      }
+
+      &:active {
+        background: $primary-dark;
+        color: #fff;
+      }
     }
 
-    &:active {
-      background: $primary-dark;
-      color: #fff;
+    &:disabled {
+      &:hover {
+        background: $primary-disabled;
+      }
+
+      &:active {
+        background: $primary-disabled;
+        color: #fff;
+      }
     }
   }
 }
@@ -487,7 +513,6 @@ ngb-pagination {
   }
 }
 
-
 .toast-container {
 
   .toast-success, .toast-error, .toast-info, .toast-warning {
@@ -526,6 +551,10 @@ ngb-pagination {
   .toast-message {
     font-size: 12px;
   }
+}
+
+.currency{
+  content: "MKD";
 }
 
 @media only screen and (max-width: 1600px) {

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {CartService} from "../../services/cart.service";
+import {QuantityComponent} from "../../components/quantity/quantity.component";
 
 @Component({
   selector: 'app-cart',
@@ -6,13 +8,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  quantity = 1;
+  @ViewChild(QuantityComponent) quantityComponent: any;
+  code: string = "";
 
-  minus() {
-    this.quantity > 1 ? this.quantity = this.quantity - 1 : this.quantity = 1;
+
+  codeValid: any = false;
+
+  constructor(public cart: CartService) {
+
   }
 
-  plus() {
-    this.quantity = this.quantity + 1;
+  applyCode() {
+    this.cart.checkPromo();
+  }
+
+  changeQuantity(event: any, item: any) {
+    this.cart.items.map((e: any) => {
+      item.productID === e.productID ? item.quantity = event : 1;
+      this.cart.updateCart();
+    })
   }
 }

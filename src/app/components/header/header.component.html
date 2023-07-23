@@ -38,7 +38,7 @@
                 <div class="cart-bottom" *ngIf="cartService.items.length">
                   <div class="total">
                     <div class="title">{{'total' | translate}}:</div>
-                    <div class="price">183.00</div>
+                    <div class="price">MKD {{cartService.total  | number: '3.1-1'}}</div>
                   </div>
                   <div class="buttons">
                     <button class="custom-button" routerLink="/cart">{{'view_cart' | translate}}</button>

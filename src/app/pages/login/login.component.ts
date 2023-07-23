@@ -29,7 +29,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value).subscribe(
       (result: any) => {
         console.log(result);

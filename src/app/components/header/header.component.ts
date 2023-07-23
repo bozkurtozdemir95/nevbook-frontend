@@ -22,9 +22,7 @@ export class HeaderComponent implements OnInit {
   ];
 
   constructor(public langService: TranslateService, public cartService: CartService, public category: CategoryService) {
-    category.getAll().subscribe((e: any) => {
-      console.log(e);
-    })
+
   }
 
   ngOnInit() {
@@ -42,6 +40,7 @@ export class HeaderComponent implements OnInit {
 
   getCartItems(): void {
     this.cartService.getItems();
+    this.cartService.getTotal();
   }
 
 
