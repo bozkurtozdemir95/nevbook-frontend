@@ -9,7 +9,7 @@
       <div class="col-lg-9">
         <div class="book-details">
           <h3>{{book.name}}</h3>
-          <h5>{{book.price}} {{'currency' | translate}}</h5>
+          <h5>{{book.price| currency:'MKD': 'symbol-narrow'}}</h5>
           <hr>
 
           <div class="stock">
