@@ -6,6 +6,7 @@
 /* Importing Fonts. */
 @import './assets/fonts/Lora/stylesheet.css';
 @import './assets/fonts/Raleway/stylesheet.css';
+@import './assets/fonts/Poppins/stylesheet.css';
 @import './assets/fonts/Cropped/stylesheet.css';
 
 /* Importing custom theming scss files. */
@@ -272,6 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 
   &:disabled {
     background: $primary-disabled;
+    cursor: unset;
 
     &:hover {
       background: $primary-disabled;
@@ -409,6 +411,10 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 13px;
     line-height: 24px;
     background: transparent;
+
+    &:disabled{
+      background: $border-light;
+    }
   }
 
   label {

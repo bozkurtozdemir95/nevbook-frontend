@@ -15,35 +15,42 @@
         <tbody>
         <tr *ngFor="let item of cart.items">
           <td>
-            <button class="transparent-button close">
+            <button class="transparent-button close" (click)="cart.removeFromCart(item)">
               <app-icon [icon]="'close'"/>
             </button>
           </td>
           <td><img src="../../../assets/img/products/{{item.productID}}.webp" alt="NevBook"></td>
           <td>{{item.name}}</td>
-          <td><span>{{item.price}} MKD</span>{{item.newPrice}}   <span class="currency"></span></td>
+          <td>
+            <div class="price">
+              <span [class.disabled]="item.newPrice">{{item.price | currency:'MKD' : 'symbol-narrow' }}</span>
+              <span>{{item.newPrice | currency:'MKD': 'symbol-narrow' }}</span>
+
+            </div>
+          </td>
           <td>
             <div class="buy">
               <app-quantity [quantity]="item.quantity" (update)="changeQuantity($event, item)"/>
             </div>
           </td>
-          <td>{{item.price }} <span class="currency"></span></td>
+          <td><span class="price">{{item.price | currency:'MKD': 'symbol-narrow' }}</span></td>
         </tr>
         <tr>
           <td colspan="5">
             <h6 class="text-right">TOTAL</h6>
           </td>
-          <td>{{cart.total}}  <span class="currency"></span></td>
+          <td><span class="price">{{cart.total | currency:'MKD': 'symbol-narrow' }}</span></td>
         </tr>
         <tr>
           <td colspan="6">
-         <div class="promo">
-           <div class="custom-input horizontal">
-             <label for="promo">Promo Code</label>
-             <input [disabled]="codeValid" type="text" id="promo" [(ngModel)]="cart.code">
-           </div>
-           <button [disabled]="codeValid" class="custom-button" (click)="applyCode()">Apply Code</button>
-         </div>
+            <div class="promo">
+              <div class="custom-input horizontal">
+                <label for="promo">Promo Code</label>
+                <input [disabled]="codeValid" type="text" id="promo"
+                       [(ngModel)]="codeValid ? cart.activePromo.code : cart.code">
+              </div>
+              <button [disabled]="codeValid" class="custom-button" (click)="applyCode()">Apply Code</button>
+            </div>
           </td>
         </tr>
         </tbody>

@@ -15,7 +15,7 @@ export class CartComponent {
   codeValid: any = false;
 
   constructor(public cart: CartService) {
-
+    this.cart.activePromo ? this.codeValid = true : false;
   }
 
   applyCode() {

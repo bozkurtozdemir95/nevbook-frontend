@@ -24,11 +24,8 @@ export class CartService {
 
     const productExistInCart = this.items.find(({productID}: any) => productID === product.productID);
     if (!productExistInCart) {
-      product.quantity = 1;
+      !product.quantity ? product.quantity = 1 : product.quantity;
       this.items.push(product);
-      this.http.post(this.api + '/api/cart/update', this.items).subscribe((e: any) => {
-        console.log(e);
-      });
       localStorage.setItem('cart', JSON.stringify(this.items));
       this.toastr.success('Product added successfully')
       this.http.post(this.api + '/api/calculate', this.items);
@@ -36,6 +33,7 @@ export class CartService {
     } else {
       this.toastr.error('Product has already been added');
     }
+    this.getTotal();
   }
 
   removeFromCart(value: any): void {
@@ -43,19 +41,23 @@ export class CartService {
     this.items.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(this.items));
     this.toastr.success('Product removed from your shopping cart');
+    this.getTotal();
   }
 
   clearCart(): void {
     this.items = [];
     localStorage.removeItem('cart');
+    this.getTotal();
   }
 
   getItems(): any[] {
     if ('cart' in localStorage) {
       // @ts-ignore
       this.items = JSON.parse(localStorage.getItem('cart'));
+      this.getTotal();
       return this.items;
     } else {
+      this.getTotal();
       return this.items;
     }
   }

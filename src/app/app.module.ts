@@ -1,5 +1,8 @@
-import {NgModule} from '@angular/core';
+import {NgModule, LOCALE_ID} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import localeMK from '@angular/common/locales/mk';
+registerLocaleData(localeMK);
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -77,7 +80,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    { provide: LOCALE_ID, useValue: 'mk-MK' }
   ],
   bootstrap: [AppComponent]
 })

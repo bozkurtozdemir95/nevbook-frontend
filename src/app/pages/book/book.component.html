@@ -19,16 +19,8 @@
             <h6>In Stock: <span> {{book.stock}}</span></h6>
           </div>
           <div class="buy">
-            <div class="count-input">
-              <button class="minus" (click)="minus()">
-                <app-icon [icon]="'remove'"></app-icon>
-              </button>
-              <input type="number" [ngModel]="quantity" readonly/>
-              <button class="plus" (click)="plus()">
-                <app-icon [icon]="'add'"></app-icon>
-              </button>
-            </div>
-            <button class="custom-button">{{'add_to_cart' | translate}}</button>
+            <app-quantity [quantity]="book.quantity ? book.quantity : 0" (update)="changeQuantity($event)"/>
+            <button class="custom-button" (click)="cart.addToCart(book)">{{'add_to_cart' | translate}}</button>
           </div>
           <hr>
           <p>

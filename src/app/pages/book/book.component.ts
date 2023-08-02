@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import productData from '../../data/products.json';
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-book',
@@ -9,25 +10,24 @@ import productData from '../../data/products.json';
 })
 export class BookComponent {
   products = productData;
-  book : any;
+  book: any;
   quantity = 1;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, public cart: CartService) {
     this.route.params.subscribe(params => {
 
       this.products.find((e: any) => {
-        if(e.productID === +params['id']){
+        if (e.productID === +params['id']) {
           this.book = e;
+          console.log(this.book);
         }
       })
     });
   }
 
-  minus() {
-    this.quantity > 1 ? this.quantity = this.quantity - 1 : this.quantity = 1;
+  changeQuantity(e: any) {
+    this.book.quantity = e;
+    console.log(this.book);
   }
 
-  plus() {
-    this.quantity = this.quantity + 1;
-  }
 }

@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {UiService} from "./services/ui.service";
 import {AuthService} from "./services/auth/auth.service";
@@ -9,17 +9,31 @@ import {CartService} from "./services/cart.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy, OnInit {
   title = 'Nevbook';
   scrolled = false;
 
-  constructor(translate: TranslateService, public ui: UiService, private auth: AuthService, private cart: CartService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+  constructor(public translate: TranslateService, public ui: UiService, private auth: AuthService, private cart: CartService) {
+
+  }
+
+  ngOnInit() {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+
     const user: any = localStorage.getItem('user');
-    if(user){
-      auth.user = JSON.parse(user);
+    if (user) {
+      this.auth.user = JSON.parse(user);
     }
+    const activePromo: any = localStorage.getItem('active_promo');
+    if (activePromo) {
+      this.cart.activePromo = JSON.parse(activePromo);
+    }
+    console.log(this.cart.activePromo);
+  }
+
+  ngOnDestroy() {
+    localStorage.clear();
   }
 
 
