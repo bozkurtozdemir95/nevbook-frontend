@@ -135,10 +135,10 @@
 }
 
 .product-wrapper {
-  animation: move .5s forwards .2s;
+  animation: move .4s forwards .1s;
   transition: $transition;
   opacity: 0;
-  transform: translate(-2%, 20%);
+  transform: translate(0%, 20%);
 }
 
 @keyframes move {

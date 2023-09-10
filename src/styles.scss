@@ -257,7 +257,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: $space $space * 3;
   transition: all .25s ease 0s;
   border-radius: 2px;
-  height: 40px;
+  height: 42px;
 
   &:not([disabled]) {
     &:hover {
@@ -365,6 +365,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .custom-input {
+  position: relative;
+
   &.with-button {
     position: relative;
 
@@ -397,6 +399,9 @@ h1, h2, h3, h4, h5, h6 {
     label {
       margin-right: $space * 2;
       margin-bottom: 0;
+      font-family: $title-font;
+      font-size: 15px;
+      font-weight: 600;
     }
   }
 
@@ -412,7 +417,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 24px;
     background: transparent;
 
-    &:disabled{
+    &:disabled {
       background: $border-light;
     }
   }
@@ -559,8 +564,26 @@ ngb-pagination {
   }
 }
 
-.currency{
-  content: "MKD";
+.checkmark {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  right: 0;
+
+  .checkmark_icon {
+    stroke: $success;
+    stroke-width: 3px;
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0
+  }
 }
 
 @media only screen and (max-width: 1600px) {

@@ -31,7 +31,6 @@ export class LoginComponent {
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe(
       (result: any) => {
-        console.log(result);
         this.authService.user = result.user;
         this.token.handleData(result.authorisation.token);
         localStorage.setItem('user', JSON.stringify(result.user));

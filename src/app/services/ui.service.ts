@@ -14,6 +14,6 @@ export class UiService {
         left: 0,
         behavior: 'smooth'
       });
-    }, 500);
+    });
   }
 }

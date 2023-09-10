@@ -19,7 +19,6 @@ export class BookComponent {
       this.products.find((e: any) => {
         if (e.productID === +params['id']) {
           this.book = e;
-          console.log(this.book);
         }
       })
     });
@@ -27,7 +26,6 @@ export class BookComponent {
 
   changeQuantity(e: any) {
     this.book.quantity = e;
-    console.log(this.book);
   }
 
 }

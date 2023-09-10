@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from "../../../environments/environment";
+import {CartService} from "../cart.service";
 
 // User interface
 export class User {
@@ -18,7 +19,7 @@ export class AuthService {
 
   user: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cartService: CartService) {
   }
 
   api = environment.serverURL;
@@ -31,9 +32,11 @@ export class AuthService {
     return this.http.post<any>(this.api + '/api/login', user);
   }
 
-  logout(): Observable<any> {
+  logout(): any {
     this.user = null;
-    return this.http.get<any>(this.api + '/api/logout');
+    this.cartService.clearCart();
+    this.http.get<any>(this.api + '/api/logout');
+    localStorage.clear();
   }
 
   profileUser(): Observable<any> {

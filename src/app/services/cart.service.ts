@@ -21,19 +21,21 @@ export class CartService {
 
 
   addToCart(product: any): void {
-
-    const productExistInCart = this.items.find(({productID}: any) => productID === product.productID);
+    let productExistInCart = false;
+    if (this.items.length > 0) {
+      productExistInCart = this.items?.find(({productID}: any) => productID === product.productID);
+    }
     if (!productExistInCart) {
       !product.quantity ? product.quantity = 1 : product.quantity;
       this.items.push(product);
       localStorage.setItem('cart', JSON.stringify(this.items));
       this.toastr.success('Product added successfully')
       this.http.post(this.api + '/api/calculate', this.items);
+      this.updateCart();
       return;
     } else {
       this.toastr.error('Product has already been added');
     }
-    this.getTotal();
   }
 
   removeFromCart(value: any): void {
@@ -47,26 +49,28 @@ export class CartService {
   clearCart(): void {
     this.items = [];
     localStorage.removeItem('cart');
-    this.getTotal();
+    this.updateCart();
   }
 
   getItems(): any[] {
     if ('cart' in localStorage) {
       // @ts-ignore
       this.items = JSON.parse(localStorage.getItem('cart'));
-      this.getTotal();
-      return this.items;
-    } else {
-      this.getTotal();
-      return this.items;
     }
+    this.updateCart();
+    return this.items;
+
   }
 
   checkPromo() {
-    return this.http.post(this.api + '/api/promo', {code: this.code}).subscribe((e: any) => {
-      this.activePromo = e;
-      this.calculate();
-    });
+    this.http.post(this.api + '/api/promo', {code: this.code}).subscribe(
+      e => {
+        this.activePromo = e;
+        this.calculate();
+      },
+      error => {
+        this.toastr.error(error.error.message);
+      })
   }
 
   setPromo() {
@@ -83,6 +87,7 @@ export class CartService {
       code: this.activePromo,
       cart: this.items
     }).subscribe((e: any) => {
+      console.log(e);
       this.items = e;
       this.updateCart();
       this.setPromo();

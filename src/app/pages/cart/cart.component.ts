@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {CartService} from "../../services/cart.service";
 import {QuantityComponent} from "../../components/quantity/quantity.component";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,7 @@ export class CartComponent {
 
   codeValid: any = false;
 
-  constructor(public cart: CartService) {
+  constructor(public cart: CartService, public category: CategoryService) {
     this.cart.activePromo ? this.codeValid = true : false;
   }
 
@@ -28,4 +29,5 @@ export class CartComponent {
       this.cart.updateCart();
     })
   }
+
 }

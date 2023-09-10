@@ -19,4 +19,5 @@ export class CategoryService {
   getCategory(id: number) {
     return this.http.get(this.api + '/api/category/' + id);
   }
+
 }

@@ -29,7 +29,6 @@ export class AppComponent implements OnDestroy, OnInit {
     if (activePromo) {
       this.cart.activePromo = JSON.parse(activePromo);
     }
-    console.log(this.cart.activePromo);
   }
 
   ngOnDestroy() {

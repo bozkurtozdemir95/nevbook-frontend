@@ -31,11 +31,14 @@ import {AuthInterceptor} from "./services/auth/auth-interceptor.service";
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuantityComponent } from './components/quantity/quantity.component';
+import {NgxStripeModule} from "ngx-stripe";
+import {environment} from "../environments/environment";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     CommonModule,
     BrowserModule,
+    NgxStripeModule.forRoot(environment.stripe.publicKey),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,

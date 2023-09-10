@@ -12,13 +12,13 @@ export class Toastr {
   error(message: string){
     this.toastr.error(message, 'Error', {
       progressBar: true,
-      timeOut: 20000
+      timeOut: 1200
     });
   }
   success(message: string){
     this.toastr.success(message, 'Success', {
       progressBar: true,
-      timeOut: 20000
+      timeOut: 1200
     });
   }
 
