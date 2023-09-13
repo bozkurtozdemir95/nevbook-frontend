@@ -13,7 +13,7 @@ export class AppComponent implements OnDestroy, OnInit {
   title = 'Nevbook';
   scrolled = false;
 
-  constructor(public translate: TranslateService, public ui: UiService, private auth: AuthService, private cart: CartService) {
+  constructor(public translate: TranslateService, public ui: UiService, public auth: AuthService, private cart: CartService) {
 
   }
 

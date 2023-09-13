@@ -20,7 +20,6 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: $space;
-    padding: 0 $space * 2;
 
     .stock {
       display: flex;
@@ -81,14 +80,63 @@
         text-align: left;
         display: flex;
         align-items: center;
-
+        
         h6 {
           color: $title-font;
+          width: 90px;
         }
 
         span {
           margin-left: $space;
         }
+      }
+    }
+  }
+
+  .edit-input {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  &.edit {
+
+    .edit-input {
+      border: 1px solid $border-color;
+      padding: $space;
+    }
+  }
+
+  .book-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: $space * 2;
+
+    button {
+      margin-left: $space * 2;
+      color: $primary;
+      font-weight: 400;
+
+      &.edit {
+        app-icon {
+          ::ng-deep svg {
+            margin-right: -2px;
+            margin-top: -4px;
+          }
+        }
+      }
+
+      &.success {
+        color: white;
+      }
+
+      &:hover {
+        color: #fff;
       }
     }
   }

@@ -1,5 +1,17 @@
-<div id="book">
+<div id="book" [class.edit]="editMode">
   <div class="container">
+    <div class="row" *ngIf="auth.isAdmin">
+      <div class="book-header" >
+        <button class="custom-button md bordered edit" *ngIf="!editMode" (click)="toggleEditMode()">
+          <app-icon [icon]="'edit'"></app-icon>
+          Edit
+        </button>
+        <button class="custom-button md success" *ngIf="editMode" (click)="toggleEditMode()">
+          <app-icon [icon]="'save'"></app-icon>
+          Save
+        </button>
+      </div>
+    </div>
     <div class="row align-start">
       <div class="col-lg-3">
         <div class="book-img">
@@ -8,15 +20,15 @@
       </div>
       <div class="col-lg-9">
         <div class="book-details">
-          <h3>{{book.name}}</h3>
-          <h5>{{book.price | currency:'MKD': 'symbol-narrow': '3.0-1' }}</h5>
+          <h3><input #editable readonly class="edit-input" type="text" value="{{book.name}}"></h3>
+          <h5><input #editable readonly class="edit-input" type="text" value="{{book.price | currency:'MKD': 'symbol-narrow': '3.0-1' }}"></h5>
           <hr>
 
           <div class="stock">
             <div class="icon">
               <app-icon [icon]="'check'"></app-icon>
             </div>
-            <h6>In Stock: <span> {{book.stock}}</span></h6>
+            <h6>In Stock: <span> <input #editable readonly class="edit-input" type="text" value="{{book.stock}}"></span></h6>
           </div>
           <div class="buy">
             <app-quantity [quantity]="book.quantity ? book.quantity : 0" (update)="changeQuantity($event)"/>
@@ -24,24 +36,24 @@
           </div>
           <hr>
           <p>
-            {{book.description}}
+            <input #editable readonly class="edit-input" type="text" value="{{book.description}}">
           </p>
           <ul>
             <li>
               <h6>{{'author' | translate}}:</h6>
-              <span> {{book.author}}</span>
+              <span><input #editable readonly class="edit-input" type="text" value="{{book.author}}"></span>
             </li>
             <li>
               <h6>{{'publisher' | translate}}:</h6>
-              <span> {{book.publisher}}</span>
+              <span><input #editable readonly class="edit-input" type="text" value="{{book.publisher}}"></span>
             </li>
             <li>
               <h6>{{'year' | translate}}:</h6>
-              <span> {{book.year}}</span>
+              <span><input #editable readonly class="edit-input" type="text" value="{{book.year}}"></span>
             </li>
             <li>
               <h6>{{'pages' | translate}}:</h6>
-              <span> {{book.pages}}</span>
+              <span><input #editable readonly class="edit-input" type="text" value="{{book.pages}}"></span>
             </li>
           </ul>
         </div>

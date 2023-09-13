@@ -259,6 +259,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
   height: 42px;
 
+  &.md {
+    padding: $space;
+  }
+
   &:not([disabled]) {
     &:hover {
       transform: translateY(2px);
@@ -310,6 +314,33 @@ h1, h2, h3, h4, h5, h6 {
         background: $primary-disabled;
         color: #fff;
       }
+    }
+  }
+
+  app-icon {
+    margin-right: $space;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &:hover {
+
+    app-icon {
+      svg {
+        color: #fff;
+      }
+    }
+  }
+
+  &.success {
+    background: $success;
+    color: #fff;
+
+    &:hover {
+      background: $success-dark;
     }
   }
 }

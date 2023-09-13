@@ -33,7 +33,8 @@
               <li ngbNavItem>
                 <button ngbNavLink>Orders</button>
                 <ng-template ngbNavContent class="orders">
-                  <table class="table table-bordered" *ngIf="!selectedOrder">
+                  <button  (click)="downloadAsPDF()">Export To PDF</button>
+                  <table class="table table-bordered" *ngIf="!selectedOrder" #pdfTable>
                     <thead>
                     <tr>
                       <th scope="col">Order</th>
@@ -44,13 +45,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>#8315</td>
-                      <td>June 30, 2023</td>
-                      <td>Processing</td>
-                      <td>15000 MKD for 4 items</td>
+                    <tr *ngFor="let item of orders">
+                      <td>#{{item.id}}</td>
+                      <td>{{item.date}}</td>
+                      <td>{{item.status}}</td>
+                      <td>{{item.total}} MKD for {{item.items}} items</td>
                       <td class="link" (click)="viewOrder(8315)">View</td>
-                    </tr>
+
                     </tbody>
                   </table>
                   <div class="order-details" *ngIf="selectedOrder">
