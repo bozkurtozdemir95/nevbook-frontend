@@ -677,6 +677,51 @@ ngb-pagination {
   }
 }
 
+table {
+  img {
+    width: 70px;
+  }
+
+  tr {
+    border-bottom: 1px solid $border-light;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  td {
+    vertical-align: middle;
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+
+      .discount {
+        color: rgb(250, 0, 79);
+        font-style: italic;
+      }
+
+      .disabled {
+        opacity: .5;
+        text-decoration: line-through;
+        font-weight: 400;
+      }
+    }
+
+    &:last-child {
+      width: 100px;
+    }
+  }
+
+  h6 {
+    font-family: $title-font;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
 @keyframes stroke {
   100% {
     stroke-dashoffset: 0

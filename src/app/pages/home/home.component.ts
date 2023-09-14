@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgbCarouselConfig} from "@ng-bootstrap/ng-bootstrap";
 import products from '../../data/products.json';
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-home',
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  productData = products;
+  productData: any = [];
 
   filteredProducts: any = [
     [], [], [], []
@@ -47,19 +48,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
   productsLength = 8;
   pageLoaded = false;
 
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig, private product: ProductService) {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
+
+
   }
 
   ngOnInit() {
 
   }
-
+  async fetchProducts() {
+    await this.product.getAll().subscribe((e: any) => {
+      this.productData = e;
+    })
+  }
   async ngAfterViewInit() {
     await this.setSlidePosition();
     await this.fetchData().then(r => this.pageLoaded = true);
+    await this.fetchProducts().then(r => console.log("r"));
   }
+
+
 
   async fetchData() {
     await this.productData.map((e: any) => {
@@ -82,6 +92,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.filteredProducts[1] = this.filteredProducts[1].slice(0, 8);
     this.filteredProducts[2] = this.filteredProducts[2].slice(0, 8);
     this.filteredProducts[3] = this.filteredProducts[3].slice(0, 8);
+    console.log(this.filteredProducts);
   }
 
   selectButton(e: any) {

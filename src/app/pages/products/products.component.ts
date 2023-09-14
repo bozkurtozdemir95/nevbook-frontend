@@ -1,17 +1,18 @@
-import {Component} from '@angular/core';
-import productData from '../../data/products.json';
-import categoryData from '../../data/categories.json';
+import {Component, OnInit} from '@angular/core';
 import {UiService} from "../../services/ui.service";
+import {CategoryService} from "../../services/category.service";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent {
-  allProducts = productData;
-  categories = categoryData;
-  filteredArray: any;
+export class ProductsComponent implements OnInit {
+
+  allProducts: any = [];
+  categories: any = [];
+  filteredArray: any = [];
   activeCategoryId: any;
   activeCategoryName: string = "all";
   activeClass: any;
@@ -19,13 +20,25 @@ export class ProductsComponent {
 
   categoriesCollapsed = true;
 
+  isLoaded = false;
 
-  constructor(public ui: UiService) {
+
+  constructor(public ui: UiService, public category: CategoryService, public product: ProductService) {
   }
 
   ngOnInit(): void {
     this.activeClass = 'active';
-    this.filteredArray = this.allProducts;
+    this.fetchData().then(r => r);
+  }
+
+  async fetchData() {
+    await this.category.getAll().subscribe((e: any) => {
+      this.categories = e;
+    });
+    await this.product.getAll().subscribe((e: any) => {
+      this.allProducts = e;
+      this.filteredArray = this.allProducts;
+    });
   }
 
   onChangePrice(value: any): void {
@@ -51,7 +64,7 @@ export class ProductsComponent {
   }
 
   onSearchChange(filter: any) {
-    this.filteredArray = this.allProducts.filter(item => {
+    this.filteredArray = this.allProducts.filter((item: any) => {
       return item.name.toLowerCase().includes(filter.target.value.toLowerCase());
     });
   }

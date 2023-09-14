@@ -14,7 +14,7 @@
               </div>
               <ul ngbNav #nav="ngbNav" class="nav-tabs">
                 <li ngbNavItem>
-                  <button ngbNavLink translate>dashboard</button>
+                  <button ngbNavLink translate>profile</button>
                   <ng-template ngbNavContent>
                     <p>
                       {{"hello" | translate}}
@@ -23,10 +23,14 @@
                   </ng-template>
                 </li>
                 <li ngbNavItem>
+                  <button ngbNavLink translate>products</button>
+                  <ng-template ngbNavContent>{{"product" | translate}}</ng-template>
+                </li>
+                <li ngbNavItem>
                   <button ngbNavLink translate>orders</button>
                   <ng-template ngbNavContent class="orders">
                     <button (click)="downloadAsPDF()" translate>export_pdf</button>
-                    <table class="table table-bordered" *ngIf="!selectedOrder" #pdfTable>
+                    <table class="table table-borderless" *ngIf="!selectedOrder" #pdfTable>
                       <thead>
                       <tr>
                         <th scope="col" translate>order</th>
@@ -40,7 +44,7 @@
                       <tr *ngFor="let item of orders">
                         <td>#{{item.id}}</td>
                         <td>{{item.date}}</td>
-                        <td>{{item.status}}</td>
+                        <td><div class="badge success">{{item.status}}</div></td>
                         <td>{{item.total}}</td>
                         <td class="link" (click)="viewOrder(8315)" translate>view</td>
 
@@ -74,7 +78,7 @@
                         </li>
                       </ul>
                       <h4 translate>order_details</h4>
-                      <table class="table table-bordered">
+                      <table class="table table-borderless">
                         <thead>
                         <tr>
                           <th scope="col" translate>product</th>
@@ -113,7 +117,7 @@
                         </tbody>
                       </table>
                       <div class="bill mt-3">
-                        <h4>billing_address</h4>
+                        <h4 translate>billing_address</h4>
                         <ul>
                           <li>Name on card</li>
                           <li>Aasdasdasdasd</li>

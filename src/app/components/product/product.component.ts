@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CartService} from "../../services/cart.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-product',
@@ -7,6 +8,8 @@ import {CartService} from "../../services/cart.service";
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
+
+  server = environment.serverURL;
   // @ts-ignore
   @Input() product: any;
   private cartService: any;

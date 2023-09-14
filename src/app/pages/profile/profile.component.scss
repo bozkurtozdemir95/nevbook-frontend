@@ -76,6 +76,25 @@
   }
 }
 
+.badge {
+  padding: 2px 10px;
+  color: #fff;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: max-content;
+  font-weight: 400;
+
+  &.success {
+    background: $success;
+  }
+
+  &.processing {
+    background: $warning;
+  }
+}
 
 .order-details {
   display: flex;

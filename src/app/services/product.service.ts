@@ -5,19 +5,15 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
-  menu: any = [];
+export class ProductService {
+
   api = environment.serverURL;
 
   constructor(private http: HttpClient) {
   }
 
+
   getAll() {
-    return this.http.get(this.api + '/category/get');
+    return this.http.post(this.api + '/product/get_all', {});
   }
-
-  getCategory(id: number) {
-    return this.http.get(this.api + '/category/get/' + id);
-  }
-
 }

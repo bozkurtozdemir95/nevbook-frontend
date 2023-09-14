@@ -3,6 +3,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {UiService} from "./services/ui.service";
 import {AuthService} from "./services/auth/auth.service";
 import {CartService} from "./services/cart.service";
+import {CategoryService} from "./services/category.service";
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,7 @@ export class AppComponent implements OnDestroy, OnInit {
   title = 'Nevbook';
   scrolled = false;
 
-  constructor(public translate: TranslateService, public ui: UiService, public auth: AuthService, private cart: CartService) {
-
+  constructor(public translate: TranslateService, public ui: UiService, public auth: AuthService, private cart: CartService, public category: CategoryService) {
   }
 
   ngOnInit() {

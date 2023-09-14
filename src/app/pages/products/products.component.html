@@ -46,16 +46,15 @@
             <app-icon [icon]="'arrow-bottom'"></app-icon>
           </div>
           <div class="custom-input">
-            <p class="product-count">{{this.filteredArray.length}} {{"products" | translate}}</p>
+            <p class="product-count">{{filteredArray?.length}} {{"products" | translate}}</p>
           </div>
         </div>
-        <div class="products-row-wrapper mt-5 slideInUp">
+        <div class="products-row-wrapper mt-5 slideInUp" *ngIf="allProducts">
           <div class="row">
             <div class="col-xl-3 col-lg-4 col-xs-6 product-wrapper"
                  *ngFor="let product of filteredArray | slice: (page-1) * 12 : page * 12">
               <app-product [product]="product"></app-product>
             </div>
-
             <div class="products-error danger" *ngIf="!filteredArray.length" translate>
              no_products
             </div>
