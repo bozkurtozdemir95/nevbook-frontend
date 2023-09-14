@@ -83,5 +83,6 @@
   "promo_codes": "Promo Codes",
   "logout": "Logout",
   "register": "Register",
-  "name": "Name"
+  "name": "Name",
+  "dashboard": "Dashboard"
 }

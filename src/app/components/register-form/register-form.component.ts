@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterFormComponent {
   registerForm: FormGroup;
   errors: any = null;
+
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -22,7 +24,10 @@ export class RegisterComponent implements OnInit {
       password_confirmation: [''],
     });
   }
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
+
   onSubmit() {
     this.authService.register(this.registerForm.value).subscribe(
       (result: any) => {

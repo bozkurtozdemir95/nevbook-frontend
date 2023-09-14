@@ -1,22 +1,21 @@
 <div class="auth-wrapper">
-  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h3>Login</h3>
-    <div *ngIf="errors?.email" class="alert alert-danger mt-3">
-      {{ errors?.email }}
+  <div class="auth-box">
+    <div ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-pills">
+      <button class="tabs-slider" #tabsSlider></button>
+      <ng-container ngbNavItem="login">
+        <button ngbNavLink (click)="selectButton($event)" translate>login</button>
+        <ng-template ngbNavContent>
+          <app-login-form></app-login-form>
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem="register">
+        <button ngbNavLink (click)="selectButton($event)" translate>register</button>
+        <ng-template ngbNavContent>
+          <app-register-form></app-register-form>
+        </ng-template>
+      </ng-container>
     </div>
-    <div *ngIf="errors?.password" class="alert alert-danger mt-3">
-      {{ errors?.password }}
-    </div>
-    <div class="custom-input">
-      <label translate>email_address</label>
-      <input type="email" formControlName="email" />
-    </div>
-    <div class="custom-input">
-      <label translate>password</label>
-      <input type="password" formControlName="password" />
-    </div>
-    <div class="buttons">
-      <button type="submit" class="custom-button" translate>login</button>
-    </div>
-  </form>
+
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
 </div>
