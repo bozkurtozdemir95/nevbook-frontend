@@ -27,10 +27,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
 import {AuthInterceptor} from "./services/auth/auth-interceptor.service";
-import {RegisterComponent} from './pages/register/register.component';
 import {LoginComponent} from './pages/login/login.component';
 import {QuantityComponent} from './components/quantity/quantity.component';
 import {AuthGuardService} from "./services/auth/auth-guard.service";
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,9 +52,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     IconComponent,
     BookComponent,
     ProductListComponent,
-    RegisterComponent,
     LoginComponent,
-    QuantityComponent
+    QuantityComponent,
+    LoginFormComponent,
+    RegisterFormComponent
   ],
   imports: [
     CommonModule,

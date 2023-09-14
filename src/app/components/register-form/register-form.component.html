@@ -1,0 +1,35 @@
+<form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <!-- Errors -->
+  <div *ngIf="errors?.name" class="alert alert-danger mt-3">
+    {{ errors?.name }}
+  </div>
+  <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+    {{ errors?.email }}
+  </div>
+  <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+    {{ errors?.password }}
+  </div>
+  <div *ngIf="errors?.password_confirmation" class="alert alert-danger mt-3">
+    {{ errors?.password_confirmation }}
+  </div>
+  <!-- Signup form -->
+  <div class="custom-input">
+    <label translate>name</label>
+    <input type="text" formControlName="name"/>
+  </div>
+  <div class="custom-input">
+    <label translate>email_address</label>
+    <input type="email" formControlName="email"/>
+  </div>
+  <div class="custom-input">
+    <label translate>password</label>
+    <input type="password" formControlName="password"/>
+  </div>
+  <div class="custom-input">
+    <label translate>confirm_password</label>
+    <input type="password" formControlName="password_confirmation"/>
+  </div>
+  <div class="buttons">
+    <button type="submit" class="custom-button" translate>register</button>
+  </div>
+</form>

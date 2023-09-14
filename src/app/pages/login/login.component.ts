@@ -1,47 +1,37 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
-import {AuthService} from "../../services/auth/auth.service";
-import {TokenService} from "../../services/auth/token.service";
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  loginForm: FormGroup;
-  errors: any = null;
+export class LoginComponent implements AfterViewInit {
+  activeButton: any;
+  activeTab = 'login';
+  @ViewChild('tabsSlider') public targetSlider: ElementRef | any;
 
-  constructor(
-    public router: Router,
-    public fb: FormBuilder,
-    public authService: AuthService,
-    public token: TokenService
-  ) {
-    this.loginForm = this.fb.group({
-      email: [''],
-      password: [''],
-    });
+  constructor() {
   }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.authService.login(this.loginForm.value).subscribe(
-      (result: any) => {
-        this.authService.user = {name: result.name, email: result.email};
-        this.token.handleData(result.access_token);
-        localStorage.setItem('user', JSON.stringify(this.authService.user));
-      },
-      (error: any) => {
-        this.errors = error.error;
-      },
-      () => {
-        this.loginForm.reset();
-        this.router.navigate(['home']);
-      }
-    );
+  async ngAfterViewInit() {
+    await this.setSlidePosition();
+  }
+
+  selectButton(e: any) {
+    const width = e.target.offsetWidth;
+    const left = e.target.offsetLeft;
+    this.targetSlider.nativeElement.style.width = width + 'px';
+    this.targetSlider.nativeElement.style.left = left + 'px';
+  }
+
+  setSlidePosition() {
+    this.activeButton = document.querySelector('.auth-wrapper .auth-box .nav-pills .nav-link.active');
+    const width = this.activeButton.offsetWidth;
+    const left = this.activeButton.offsetLeft;
+    this.targetSlider.nativeElement.style.width = width + 'px';
+    this.targetSlider.nativeElement.style.left = left + 'px';
   }
 }

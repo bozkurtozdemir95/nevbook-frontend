@@ -1,0 +1,19 @@
+<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+    {{ errors?.email }}
+  </div>
+  <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+    {{ errors?.password }}
+  </div>
+  <div class="custom-input">
+    <label translate>email_address</label>
+    <input type="email" formControlName="email"/>
+  </div>
+  <div class="custom-input">
+    <label translate>password</label>
+    <input type="password" formControlName="password"/>
+  </div>
+  <div class="buttons">
+    <button type="submit" class="custom-button" translate>login</button>
+  </div>
+</form>
