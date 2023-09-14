@@ -7,7 +7,6 @@
   justify-content: space-between;
   z-index: 9999;
   margin-bottom: 0;
-  padding-bottom: $space;
   box-shadow: $shadow;
   position: fixed;
   top: 0;
@@ -23,9 +22,39 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    .auth-area {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    a {
+      color: #ffffff;
+      margin-right: $space * 2;
+      font-weight: 400;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      app-icon {
+        ::ng-deep {
+          svg {
+            fill: #ffffff;
+            width: 16px;
+            max-height: 20px;
+          }
+        }
+      }
+    }
   }
 
   .language-menu {
+    display: flex;
+    width: auto;
+
     .dropdown {
       display: flex;
       align-items: center;
@@ -34,13 +63,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid $border-light;
+        border: 1px solid $border-white;
         transition: all .25s ease 0s;
         height: 30px;
-        padding: 0 $space/2;
+        padding: 0 $space / 2;
+        color: #fff;
+        font-size: 12px;
 
         &:hover, &.active {
-          background: $border-light;
+          background: $border-color;
         }
 
         &:after {
@@ -50,13 +81,14 @@
         ::ng-deep svg {
           height: 12px;
           max-width: 18px;
-          color: $title;
+          color: #fff;
         }
 
         img {
           width: 24px;
           height: auto;
           min-width: 20px;
+          margin-right: $space;
         }
       }
 

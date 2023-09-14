@@ -1,15 +1,25 @@
 <div id="header">
   <div class="top-nav">
-    <div class="language-menu">
-      <div ngbDropdown>
-        <button type="button" class="transparent-button" id="language-menu" ngbDropdownToggle>
-          <img src="../../../assets/img/flags/{{langService.currentLang}}.png" alt="">
-          {{"lang_name" | translate}}
-          <app-icon [icon]="'arrow-bottom'"/>
-        </button>
-        <div ngbDropdownMenu aria-labelledby="language-menu">
-          <li (click)="changeLang(lang.key)" routerLinkActive="active"
-              *ngFor="let lang of languages">{{lang.value}}</li>
+    <div class="container">
+      <div class="row">
+        <div class="auth-area">
+          <a routerLink="/login" type="button">
+            <app-icon [icon]="'user-fill'"></app-icon>
+            {{"login" | translate}}
+          </a>
+          <div class="language-menu">
+            <div ngbDropdown>
+              <button type="button" class="transparent-button" id="language-menu" ngbDropdownToggle>
+                <img src="../../../assets/img/flags/{{langService.currentLang}}.png" alt="">
+                {{"lang_name" | translate}}
+                <app-icon [icon]="'arrow-bottom'"/>
+              </button>
+              <div ngbDropdownMenu aria-labelledby="language-menu">
+                <li (click)="changeLang(lang.key)" routerLinkActive="active"
+                    *ngFor="let lang of languages">{{lang.value}}</li>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
