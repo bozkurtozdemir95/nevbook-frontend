@@ -39,14 +39,14 @@
           </div>
           <div class="custom-input">
             <select name="filterPrice" id="filterPrice" (change)="onChangePrice($event)">
-              <option value="0">Sort By Price</option>
-              <option value="1">low to high</option>
-              <option value="2">high to low</option>
+              <option value="0" translate>sort_by_price</option>
+              <option value="1" translate>low_to_high</option>
+              <option value="2" translate>high_to_low</option>
             </select>
             <app-icon [icon]="'arrow-bottom'"></app-icon>
           </div>
           <div class="custom-input">
-            <p class="product-count">{{this.filteredArray.length}} Products</p>
+            <p class="product-count">{{this.filteredArray.length}} {{"products" | translate}}</p>
           </div>
         </div>
         <div class="products-row-wrapper mt-5 slideInUp">
@@ -56,8 +56,8 @@
               <app-product [product]="product"></app-product>
             </div>
 
-            <div class="products-error danger" *ngIf="!filteredArray.length">
-              No products found
+            <div class="products-error danger" *ngIf="!filteredArray.length" translate>
+             no_products
             </div>
           </div>
         </div>

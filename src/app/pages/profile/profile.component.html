@@ -24,23 +24,22 @@
                 <button ngbNavLink>Dashboard</button>
                 <ng-template ngbNavContent>
                   <p>
-                    Hello {{auth.user.name}}, <br>
-                    From your account dashboard you can view your recent orders, and edit your password and account
-                    details.
+                    {{"hello" | translate}} {{auth.user.name}}, <br>
+                    {{"dashboard_info" | translate}}
                   </p>
                 </ng-template>
               </li>
               <li ngbNavItem>
-                <button ngbNavLink>Orders</button>
+                <button ngbNavLink translate>orders</button>
                 <ng-template ngbNavContent class="orders">
-                  <button  (click)="downloadAsPDF()">Export To PDF</button>
+                  <button  (click)="downloadAsPDF()" translate>export_pdf</button>
                   <table class="table table-bordered" *ngIf="!selectedOrder" #pdfTable>
                     <thead>
                     <tr>
-                      <th scope="col">Order</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Total</th>
+                      <th scope="col" translate>order</th>
+                      <th scope="col" translate>date</th>
+                      <th scope="col" translate>status</th>
+                      <th scope="col" translate>total</th>
                       <th scope="col"></th>
                     </tr>
                     </thead>
@@ -49,15 +48,15 @@
                       <td>#{{item.id}}</td>
                       <td>{{item.date}}</td>
                       <td>{{item.status}}</td>
-                      <td>{{item.total}} MKD for {{item.items}} items</td>
-                      <td class="link" (click)="viewOrder(8315)">View</td>
+                      <td>{{item.total}}</td>
+                      <td class="link" (click)="viewOrder(8315)" translate>view</td>
 
                     </tbody>
                   </table>
                   <div class="order-details" *ngIf="selectedOrder">
                     <button class="transparent-button" (click)="backToOrders()">
                       <app-icon [icon]="'arrow-left'"/>
-                      Back
+                      {{"back" | translate}}
                     </button>
                     <ul>
                       <li>
@@ -69,24 +68,24 @@
                         <span>June 30, 2023</span>
                       </li>
                       <li>
-                        <h6>Email</h6>
+                        <h6 translate>email</h6>
                         <span>test@gmail.com</span>
                       </li>
                       <li>
-                        <h6>Total</h6>
+                        <h6 translate>total</h6>
                         <span>15000 MKD</span>
                       </li>
                       <li>
-                        <h6>Payment Method</h6>
+                        <h6 translate>payment_method</h6>
                         <span>Cash on delivery</span>
                       </li>
                     </ul>
-                    <h4>Order Details</h4>
+                    <h4 translate>order_details</h4>
                     <table class="table table-bordered">
                       <thead>
                       <tr>
-                        <th scope="col">Product</th>
-                        <th scope="col">Total</th>
+                        <th scope="col" translate>product</th>
+                        <th scope="col" translate>total</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -103,25 +102,25 @@
                         <td></td>
                       </tr>
                       <tr>
-                        <td>Subtotal</td>
+                        <td translate>subtotal</td>
                         <td>16000 MKD</td>
                       </tr>
                       <tr>
-                        <td>Discount (FINKY)</td>
+                        <td>{{"discount" | translate}} (FINKY)</td>
                         <td>20%</td>
                       </tr>
                       <tr>
-                        <td>Payment Method</td>
+                        <td translate>payment_method</td>
                         <td>Cash on delivery</td>
                       </tr>
                       <tr>
-                        <td>Total</td>
+                        <td translate>total</td>
                         <td>12800 MKD</td>
                       </tr>
                       </tbody>
                     </table>
                     <div class="bill mt-3">
-                      <h4>Billing Address</h4>
+                      <h4>billing_address</h4>
                       <ul>
                         <li>Name on card</li>
                         <li>Aasdasdasdasd</li>
@@ -134,19 +133,15 @@
                 </ng-template>
               </li>
               <li ngbNavItem>
-                <button ngbNavLink>Users</button>
+                <button ngbNavLink translate>users</button>
                 <ng-template ngbNavContent>Second content</ng-template>
               </li>
               <li ngbNavItem>
-                <button ngbNavLink>Promo Codes</button>
+                <button ngbNavLink translate>promo_codes</button>
                 <ng-template ngbNavContent>Second content</ng-template>
               </li>
               <li ngbNavItem>
-                <button ngbNavLink>Settings</button>
-                <ng-template ngbNavContent>Second content</ng-template>
-              </li>
-              <li ngbNavItem>
-                <button ngbNavLink (click)="logout()">Logout</button>
+                <button ngbNavLink (click)="logout()" translate>logout</button>
               </li>
             </ul>
           </div>

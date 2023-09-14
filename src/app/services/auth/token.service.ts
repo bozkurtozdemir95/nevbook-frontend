@@ -8,8 +8,8 @@ export class TokenService {
   api = environment.serverURL;
 
   private issuer = {
-    login: this.api + '/api/auth/login',
-    register: this.api + '/api/auth/register',
+    login: this.api + '/auth/login',
+    register: this.api + '/auth/register',
   };
 
   constructor() {

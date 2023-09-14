@@ -26,21 +26,20 @@ export class AuthService {
   api = environment.serverURL;
 
   register(user: User): Observable<any> {
-    return this.http.post(this.api + '/api/register', user);
+    return this.http.post(this.api + '/auth/register', user);
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<any>(this.api + '/api/login', user);
+    return this.http.post<any>(this.api + '/auth/login', user);
   }
 
   logout(): any {
     this.user = null;
     this.cartService.clearCart();
-    this.http.get<any>(this.api + '/api/logout');
     localStorage.clear();
   }
 
   profileUser(): Observable<any> {
-    return this.http.get(this.api + '/api/user-profile');
+    return this.http.get(this.api + '/auth/user-profile');
   }
 }

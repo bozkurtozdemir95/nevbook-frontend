@@ -31,9 +31,9 @@ export class LoginComponent {
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe(
       (result: any) => {
-        this.authService.user = result.user;
-        this.token.handleData(result.authorisation.token);
-        localStorage.setItem('user', JSON.stringify(result.user));
+        this.authService.user = {name: result.name, email: result.email};
+        this.token.handleData(result.access_token);
+        localStorage.setItem('user', JSON.stringify(this.authService.user));
       },
       (error: any) => {
         this.errors = error.error;

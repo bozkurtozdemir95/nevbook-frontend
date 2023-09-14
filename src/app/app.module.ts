@@ -1,7 +1,8 @@
 import {NgModule, LOCALE_ID} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import { registerLocaleData } from '@angular/common';
+import {registerLocaleData} from '@angular/common';
 import localeMK from '@angular/common/locales/mk';
+
 registerLocaleData(localeMK);
 
 import {AppRoutingModule} from './app-routing.module';
@@ -20,17 +21,16 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {IconComponent} from './components/icon/icon.component';
 import {CommonModule} from "@angular/common";
 import {NgbCarousel, NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {AboutComponent} from './pages/about/about.component';
-import {ContactComponent} from './pages/contact/contact.component';
 import {BookComponent} from './pages/book/book.component';
 import {ProductListComponent} from './components/product-list/product-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
 import {AuthInterceptor} from "./services/auth/auth-interceptor.service";
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
-import { QuantityComponent } from './components/quantity/quantity.component';
+import {RegisterComponent} from './pages/register/register.component';
+import {LoginComponent} from './pages/login/login.component';
+import {QuantityComponent} from './components/quantity/quantity.component';
+import {AuthGuardService} from "./services/auth/auth-guard.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,8 +49,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductComponent,
     CheckoutComponent,
     IconComponent,
-    AboutComponent,
-    ContactComponent,
     BookComponent,
     ProductListComponent,
     RegisterComponent,
@@ -82,7 +80,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: AuthInterceptor,
       multi: true
     },
-    { provide: LOCALE_ID, useValue: 'mk-MK' }
+    {provide: LOCALE_ID, useValue: 'mk-MK'},
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -57,12 +57,7 @@ export class ProfileComponent {
     let ordersToPrint = [];
     const PDFbody: any = [];
     this.orders.map(a => {
-      ordersToPrint = []
-      ordersToPrint.push(a.id);
-      ordersToPrint.push(a.date);
-      ordersToPrint.push(a.status);
-      ordersToPrint.push(a.total);
-      ordersToPrint.push(a.items);
+      ordersToPrint = [a.id, a.date, a.status, a.total, a.items];
       PDFbody.push(ordersToPrint);
     })
     autoTable(doc, {

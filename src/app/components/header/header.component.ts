@@ -15,8 +15,6 @@ export class HeaderComponent implements OnInit {
   menu: any = [
     {id: 0, title: "home", link: '/'},
     {id: 1, title: "shop", link: '/shop'},
-    {id: 2, title: "about", link: '/about'},
-    {id: 3, title: "contact", link: '/contact'},
   ];
 
   languages = [
@@ -33,6 +31,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getCartItems();
+    console.log(this.langService.currentLang);
   }
 
   changeLang(key: string) {

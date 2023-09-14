@@ -1,9 +1,24 @@
 <div id="header">
+  <div class="top-nav">
+    <div class="language-menu">
+      <div ngbDropdown>
+        <button type="button" class="transparent-button" id="language-menu" ngbDropdownToggle>
+          <img src="../../../assets/img/flags/{{langService.currentLang}}.png" alt="">
+          {{"lang_name" | translate}}
+          <app-icon [icon]="'arrow-bottom'"/>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="language-menu">
+          <li (click)="changeLang(lang.key)" routerLinkActive="active"
+              *ngFor="let lang of languages">{{lang.value}}</li>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="flex justify-between w-100 relative">
 
-        <div class="header-left" >
+        <div class="header-left">
           <div class="mobile-menu">
             <div ngbDropdown>
               <button type="button" class="transparent-button" id="mobile-menu" ngbDropdownToggle>
@@ -38,16 +53,18 @@
                 <div class="cart-bottom" *ngIf="cartService.items.length">
                   <div class="total">
                     <div class="title">{{'total' | translate}}:</div>
-                    <div class="price">MKD {{cartService.total  | number: '3.0-1'}}</div>
+                    <div class="price">{{cartService.total  | number: '3.0-1'}}</div>
                   </div>
                   <div class="buttons">
-                    <button class="custom-button" routerLink="/cart" (click)="sendToCart()">{{'view_cart' | translate}}</button>
+                    <button class="custom-button" routerLink="/cart"
+                            (click)="sendToCart()">{{'view_cart' | translate}}</button>
                     <button class="custom-button bordered" (click)="clearCart()">{{'clear' | translate}}</button>
                   </div>
                 </div>
                 <div class="empty-cart" *ngIf="!cartService.items.length">
                   <p>{{'no_item' | translate}}</p>
-                  <button class="custom-button" routerLink="/shop" (click)="cartDropdown.close();">{{'SHOP NOW' | translate}}</button>
+                  <button class="custom-button" routerLink="/shop"
+                          (click)="cartDropdown.close();">{{'SHOP NOW' | translate}}</button>
                 </div>
               </div>
             </div>
@@ -55,18 +72,7 @@
           <button class="transparent-button right-menu-button" routerLink="/profile">
             <app-icon [icon]="'user'"/>
           </button>
-          <div class="language-menu">
-            <div ngbDropdown>
-              <button type="button" class="transparent-button" id="language-menu" ngbDropdownToggle>
-                <img src="../../../assets/img/flags/{{langService.currentLang}}.png" alt="">
-                <app-icon [icon]="'arrow-bottom'"/>
-              </button>
-              <div ngbDropdownMenu aria-labelledby="language-menu">
-                <li (click)="changeLang(lang.key)" routerLinkActive="active"
-                    *ngFor="let lang of languages">{{lang.value}}</li>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
