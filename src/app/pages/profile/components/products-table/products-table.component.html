@@ -1,7 +1,7 @@
 <div class="subpage-title">
   <div class="custom-input selectbox">
     <select name="categories" id="categories" (change)="onCategoryChange($event)">
-      <option value="0">Choose Category</option>
+      <option value="0" translate>choose_category</option>
       <option [value]="category.categoryID" *ngFor="let category of categories">{{"category." + category.title | translate}}</option>
     </select>
     <app-icon [icon]="'arrow-bottom'"></app-icon>
@@ -33,5 +33,5 @@
 </table>
 
 <div class="empty-table">
-  <p class="text-center">Please choose a category to continue...</p>
+  <p class="text-center" translate>choose_category_text</p>
 </div>

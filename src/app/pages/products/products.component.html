@@ -15,7 +15,7 @@
           <div class="content">
             <ul class="sidebar-category-list">
               <div class="category-item" (click)="clearCategoryFilter()">
-                <h4 [ngClass]="activeClass">All</h4>
+                <h4 [ngClass]="activeClass" translate>category.all</h4>
               </div>
               <div class="category-item"
                    *ngFor="let category of categories"
@@ -31,9 +31,9 @@
         <div class="products-row-wrapper shop-filter-bar">
           <div class="custom-input">
             <select name="filterDate" id="filterDate" (change)="onChangeDate($event)">
-              <option value="0">Sort By Date</option>
-              <option value="1">Latest</option>
-              <option value="2">Oldest</option>
+              <option value="0" translate>sort_by_date</option>
+              <option value="1" translate>latest</option>
+              <option value="2" translate>oldest</option>
             </select>
             <app-icon [icon]="'arrow-bottom'"></app-icon>
           </div>

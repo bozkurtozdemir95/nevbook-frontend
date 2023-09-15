@@ -1,21 +1,12 @@
 <div id="book" [class.edit]="editMode">
   <div class="container">
     <div class="row" *ngIf="auth.isAdmin">
-      <div class="book-header" >
-        <button class="custom-button md bordered edit" *ngIf="!editMode" (click)="toggleEditMode()">
-          <app-icon [icon]="'edit'"></app-icon>
-          Edit
-        </button>
-        <button class="custom-button md success" *ngIf="editMode" (click)="toggleEditMode()">
-          <app-icon [icon]="'save'"></app-icon>
-          Save
-        </button>
-      </div>
+
     </div>
     <div class="row align-start">
       <div class="col-lg-3">
         <div class="book-img">
-          <img src="../../../assets/img/products/{{book.productID}}.webp" alt="NevBook">
+          <img src="{{server}}/product/photo/{{book.productID}}.webp" alt="NevBook">
         </div>
       </div>
       <div class="col-lg-9">
@@ -28,7 +19,7 @@
             <div class="icon">
               <app-icon [icon]="'check'"></app-icon>
             </div>
-            <h6>In Stock: <span> <input #editable readonly class="edit-input" type="text" value="{{book.stock}}"></span></h6>
+            <h6>{{"in_stock" | translate}} <span> <input #editable readonly class="edit-input" type="text" value="{{book.stock}}"></span></h6>
           </div>
           <div class="buy">
             <app-quantity [quantity]="book.quantity ? book.quantity : 0" (update)="changeQuantity($event)"/>

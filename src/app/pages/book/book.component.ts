@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import productData from '../../data/products.json';
 import {CartService} from "../../services/cart.service";
 import {AuthService} from "../../services/auth/auth.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-book',
@@ -11,6 +12,7 @@ import {AuthService} from "../../services/auth/auth.service";
 })
 export class BookComponent implements AfterViewInit {
   @ViewChildren('editable') components: any;
+  server = environment.serverURL;
 
   products = productData;
   book: any;

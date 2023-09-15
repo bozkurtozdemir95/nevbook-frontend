@@ -95,5 +95,18 @@
   "choose_file": "Choose File",
   "id": "ID",
   "photo": "Photo",
-  "export_xlsx": "Export XLSX"
+  "export_xlsx": "Export XLSX",
+  "sort_by_date": "Sort By Date",
+  "latest": "Latest",
+  "oldest": "Oldest",
+  "in_stock": "In Stock",
+  "address": "Address",
+  "zip_code": "ZIP Code",
+  "province": "Province",
+  "city": "City",
+  "your_order": "Your Order",
+  "place_order": "Place Order",
+  "proceed_to_checkout": "Proceed to Checkout",
+  "choose_category": "Choose Category",
+  "choose_category_text": "Please choose a category to continue..."
 }
