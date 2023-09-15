@@ -31,7 +31,6 @@ export class BookComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.components.toArray().forEach((e: any) => {
-      console.log(e);
       e.nativeElement.readOnly = false;
     })
   }

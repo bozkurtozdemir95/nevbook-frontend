@@ -6,7 +6,6 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class CategoryService {
-  menu: any = [];
   api = environment.serverURL;
 
   constructor(private http: HttpClient) {
@@ -15,9 +14,4 @@ export class CategoryService {
   getAll() {
     return this.http.get(this.api + '/category/get');
   }
-
-  getCategory(id: number) {
-    return this.http.get(this.api + '/category/get/' + id);
-  }
-
 }

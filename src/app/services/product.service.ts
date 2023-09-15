@@ -16,4 +16,8 @@ export class ProductService {
   getAll() {
     return this.http.post(this.api + '/product/get_all', {});
   }
+
+  getByCategory(id: number) {
+    return this.http.post(this.api + '/product/get_all/', {categoryID: +id});
+  }
 }

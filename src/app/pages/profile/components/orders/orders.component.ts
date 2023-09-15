@@ -20,15 +20,18 @@ export class OrdersComponent implements OnInit {
   orders: any = [];
 
   constructor(public orderService: OrderService, public router: Router,
-              private toastr: Toastr,) {
+              private toastr: Toastr) {
   }
 
   ngOnInit() {
+    this.getOrders();
+  }
+
+  getOrders() {
     this.orderService.getAll().subscribe((e: any) => {
       this.orders = e;
     })
   }
-
 
   viewOrder(id: any) {
     this.orderService.get(id).subscribe((e: any) => {
@@ -59,7 +62,8 @@ export class OrdersComponent implements OnInit {
     this.orderService.complete(id).subscribe(
       (result: any) => {
         this.toastr.success('Order completed!');
-        this.router.navigate(['profile'])
+        this.getOrders();
+        this.backToOrders();
       },
       (error: any) => {
         this.toastr.error('There was an error!');

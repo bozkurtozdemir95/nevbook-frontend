@@ -87,5 +87,13 @@
   "profile": "Profile",
   "complete_order": "Complete Order",
   "completed": "Completed",
-  "processing": "Processing"
+  "processing": "Processing",
+  "type": "Type",
+  "admin": "Admin",
+  "user": "User",
+  "import_users": "Import Users",
+  "choose_file": "Choose File",
+  "id": "ID",
+  "photo": "Photo",
+  "export_xlsx": "Export XLSX"
 }

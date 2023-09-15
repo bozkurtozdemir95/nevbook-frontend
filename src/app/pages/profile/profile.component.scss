@@ -12,6 +12,7 @@
     background: $border-xlight;
     border: 1px solid $border-light;
     padding: $space * 2 0 0;
+    margin-bottom: $space * 3;
 
     .user {
       padding: $space * 2;
@@ -75,3 +76,4 @@
     }
   }
 }
+

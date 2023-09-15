@@ -12,20 +12,13 @@ import {UserService} from "../../services/user.service";
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit{
-  showLogin = true;
-  users: any = [];
 
-  userTable = null;
 
   constructor(public auth: AuthService, public router: Router, private userService: UserService) {
   }
 
 
   ngOnInit() {
-    this.userService.getAll().subscribe((e: any) => {
-      console.log(e);
-      this.users = e;
-    })
   }
 
   logout() {
@@ -35,29 +28,5 @@ export class ProfileComponent implements OnInit{
   }
 
 
-  onFileChange(ev: any) {
-    let workBook: any = null;
-    let jsonData = null;
-    const reader = new FileReader();
-    const file = ev.target.files[0];
-    reader.onload = (event) => {
-      const data = reader.result;
-      workBook = XLSX.read(data, {type: 'binary'});
-      jsonData = workBook.SheetNames.reduce((initial: any, name: any) => {
-        const sheet = workBook.Sheets[name];
-        initial[name] = XLSX.utils.sheet_to_json(sheet);
-        return initial;
-      }, {});
 
-      const key = Object.keys(jsonData)[0];
-      this.userTable = jsonData[key];
-      // @ts-ignore
-      //document.getElementById('output').innerHTML = dataString.slice(0, 300);
-    }
-    reader.readAsBinaryString(file);
-  }
-
-  importUsers() {
-    this.userService.importUsers(this.userTable)
-  }
 }

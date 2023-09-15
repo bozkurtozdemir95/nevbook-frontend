@@ -13,12 +13,13 @@ export class UserService {
   }
 
   importUsers(data: any) {
-    return this.http.post(this.api + '/user/import', data).subscribe((e: any) => {
-      console.log(e);
-    });
+    return this.http.post(this.api + '/user/import', data);
   }
 
   getAll() {
     return this.http.get(this.api + '/user/get_all');
+  }
+  changeRole(id: number) {
+    return this.http.get(this.api + '/user/change_role/' + id);
   }
 }

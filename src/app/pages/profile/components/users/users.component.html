@@ -1,0 +1,35 @@
+
+<div class="subpage-title">
+  <button class="custom-button md file-input" translate (change)="fileChoosed($event)">
+    <input type="file" (change)="onFileChange($event)"/>
+    <span translate>choose_file</span>
+  </button>
+
+  <button class="custom-button md success" (click)="importUsers()" translate>
+    import_users
+  </button>
+</div>
+<table class="table table-borderless">
+  <thead>
+  <tr>
+    <th scope="col" translate>name</th>
+    <th scope="col" translate>email</th>
+    <th scope="col" translate>type</th>
+    <th scope="col" translate>admin</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.type | translate}}</td>
+    <td>
+     <div class="custom-toggle">
+       <label for="admin{{user.id}}" class="switch">
+         <input type="checkbox" id="admin{{user.id}}" [checked]="user.type === 'admin'" (change)="changeAdmin(user.id, $event)">
+         <span class="slider"></span>
+       </label>
+     </div>
+    </td>
+  </tbody>
+</table>

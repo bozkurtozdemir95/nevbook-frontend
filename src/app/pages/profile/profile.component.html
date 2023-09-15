@@ -4,7 +4,7 @@
       <div class="profile-wrapper">
         <div class="row">
           <div class="col-lg-3">
-            <div class="profile-left">
+            <div class="profile-left sticky-top">
               <div class="user">
                 <div class="avatar">
                   <app-icon [icon]="'user'"/>
@@ -24,7 +24,9 @@
                 </li>
                 <li ngbNavItem *ngIf="auth.isAdmin">
                   <button ngbNavLink translate>products</button>
-                  <ng-template ngbNavContent>{{"product" | translate}}</ng-template>
+                  <ng-template ngbNavContent>
+                    <app-products-table></app-products-table>
+                  </ng-template>
                 </li>
                 <li ngbNavItem>
                   <button ngbNavLink translate>orders</button>
@@ -35,25 +37,7 @@
                 <li ngbNavItem *ngIf="auth.isAdmin">
                   <button ngbNavLink translate>users</button>
                   <ng-template ngbNavContent>
-                    <input type="file" (change)="onFileChange($event)"/>
-                    <div id="output"></div>
-
-                    <button (click)="importUsers()">imppooort</button>
-                    <table class="table table-borderless">
-                      <thead>
-                      <tr>
-                        <th scope="col" translate>name</th>
-                        <th scope="col" translate>email</th>
-                        <th scope="col" translate>type</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr *ngFor="let user of users">
-                        <td>{{user.name}}</td>
-                        <td>{{user.email}}</td>
-                        <td>{{user.type}}</td>
-                      </tbody>
-                    </table>
+                    <app-users></app-users>
                   </ng-template>
                 </li>
                 <li ngbNavItem>

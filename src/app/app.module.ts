@@ -33,6 +33,8 @@ import {AuthGuardService} from "./services/auth/auth-guard.service";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { OrdersComponent } from './pages/profile/components/orders/orders.component';
+import { UsersComponent } from './pages/profile/components/users/users.component';
+import { ProductsTableComponent } from './pages/profile/components/products-table/products-table.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -57,7 +59,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     QuantityComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    OrdersComponent
+    OrdersComponent,
+    UsersComponent,
+    ProductsTableComponent
   ],
   imports: [
     CommonModule,

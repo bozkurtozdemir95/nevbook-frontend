@@ -26,7 +26,6 @@ export class LoginFormComponent {
       (result: any) => {
         this.authService.user = {name: result.name, email: result.email, type: result.type};
         this.authService.isAdmin = result.type === "admin";
-        console.log(this.authService.isAdmin);
         this.token.handleData(result.access_token);
         localStorage.setItem('user', JSON.stringify(this.authService.user));
       },

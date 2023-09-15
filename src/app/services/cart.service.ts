@@ -87,7 +87,6 @@ export class CartService {
       code: this.activePromo,
       cart: this.items
     }).subscribe((e: any) => {
-      console.log(e);
       this.items = e;
       this.updateCart();
       this.setPromo();

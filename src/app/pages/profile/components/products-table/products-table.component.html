@@ -1,0 +1,37 @@
+<div class="subpage-title">
+  <div class="custom-input selectbox">
+    <select name="categories" id="categories" (change)="onCategoryChange($event)">
+      <option value="0">Choose Category</option>
+      <option [value]="category.categoryID" *ngFor="let category of categories">{{"category." + category.title | translate}}</option>
+    </select>
+    <app-icon [icon]="'arrow-bottom'"></app-icon>
+  </div>
+  <button class="custom-button md" (click)="exportXlsx()" translate>export_xlsx</button>
+</div>
+<table class="table table-borderless" id="products-table" *ngIf="filteredArray.length">
+  <thead>
+  <tr>
+    <th scope="col" translate>photo</th>
+    <th scope="col" translate>id</th>
+    <th scope="col" translate>name</th>
+    <th scope="col" translate>author</th>
+    <th scope="col" translate>year</th>
+    <th scope="col" translate>price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of filteredArray">
+    <td><img src="{{server}}/product/photo/{{item.photo}}" alt="NevBook"></td>
+    <td>#{{item.productID}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.author}}</td>
+    <td>{{item.year}}</td>
+    <td class="fw-semibold">{{item.price | currency:'MKD': 'symbol-narrow':'3.0-1'}}</td>
+  </tr>
+
+  </tbody>
+</table>
+
+<div class="empty-table">
+  <p class="text-center">Please choose a category to continue...</p>
+</div>
