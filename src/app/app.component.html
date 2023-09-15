@@ -1,11 +1,8 @@
-<button *ngIf="false" (click)="auth.isAdmin = !auth.isAdmin" style="position: fixed; top:0; left:0; width: 100px; color: gray; border: 0; height: 50px; z-index: 99999">Toggle Admin: {{auth.isAdmin}}</button>
-<div class="page-content">
-  <app-header></app-header>
-  <div class="page-container">
-    <router-outlet></router-outlet>
-  </div>
-  <app-footer></app-footer>
+<app-header></app-header>
+<div class="page-container">
+  <router-outlet></router-outlet>
 </div>
+<app-footer></app-footer>
 <div id="slide-top" (click)="ui.scrollTop()" *ngIf="scrolled">
   <app-icon [icon]="'arrow-up'"/>
 </div>

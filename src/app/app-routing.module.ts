@@ -13,11 +13,11 @@ import {LoginComponent} from "./pages/login/login.component";
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
   {path: 'shop', component: ProductsComponent},
   {path: 'shop/book/:id', component: BookComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
 ];
 

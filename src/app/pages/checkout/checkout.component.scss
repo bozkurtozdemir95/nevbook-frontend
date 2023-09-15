@@ -1,0 +1,37 @@
+@import '../../../assets/theme/variables';
+
+.checkout {
+  h3 {
+    color: #2b2b2b;
+    font-family: $title-font;
+    background: transparent;
+    font-weight: 700;
+    font-size: 22px;
+    margin: -3px 0 $space * 2;
+    position: relative;
+    text-transform: capitalize;
+    padding-bottom: $space;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .price {
+    font-weight: 600;
+  }
+
+  .billing {
+    margin-bottom: $space * 3;
+  }
+
+  .custom-input {
+    margin-bottom: 20px;
+  }
+
+  .summary {
+    button {
+      width: 100%;
+    }
+  }
+}

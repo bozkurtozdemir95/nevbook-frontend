@@ -3,9 +3,13 @@
     <div class="container">
       <div class="row">
         <div class="auth-area">
-          <a routerLink="/login" type="button">
+          <a routerLink="/login" type="button" *ngIf="!auth.user">
             <app-icon [icon]="'user'"></app-icon>
             {{"login" | translate}}
+          </a>
+          <a routerLink="/profile" type="button" *ngIf="auth.user">
+            <app-icon [icon]="'user'"></app-icon>
+            {{auth.user.name}}
           </a>
           <div class="language-menu">
             <div ngbDropdown>
@@ -79,9 +83,6 @@
               </div>
             </div>
           </div>
-          <button class="transparent-button right-menu-button" routerLink="/profile">
-            <app-icon [icon]="'user'"/>
-          </button>
 
         </div>
       </div>

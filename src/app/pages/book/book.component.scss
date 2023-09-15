@@ -2,7 +2,6 @@
 
 #book {
   padding: $space * 3 0;
-  min-height: 90vh;
 
   .book-img {
     display: flex;
@@ -80,7 +79,7 @@
         text-align: left;
         display: flex;
         align-items: center;
-        
+
         h6 {
           color: $title-font;
           width: 90px;

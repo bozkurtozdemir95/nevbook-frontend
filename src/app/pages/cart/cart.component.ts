@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {CartService} from "../../services/cart.service";
 import {QuantityComponent} from "../../components/quantity/quantity.component";
 import {CategoryService} from "../../services/category.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-cart',
@@ -10,18 +11,11 @@ import {CategoryService} from "../../services/category.service";
 })
 export class CartComponent {
   @ViewChild(QuantityComponent) quantityComponent: any;
-  code: string = "";
-
-
-  codeValid: any = false;
+  server = environment.serverURL;
 
   constructor(public cart: CartService, public category: CategoryService) {
-    this.cart.activePromo ? this.codeValid = true : false;
   }
 
-  applyCode() {
-    this.cart.checkPromo();
-  }
 
   changeQuantity(event: any, item: any) {
     this.cart.items.map((e: any) => {

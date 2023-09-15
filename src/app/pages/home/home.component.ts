@@ -40,59 +40,48 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  productData: any = [];
-
   filteredProducts: any = [
     [], [], [], []
   ];
-  productsLength = 8;
-  pageLoaded = false;
 
   constructor(config: NgbCarouselConfig, private product: ProductService) {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
-
-
   }
 
   ngOnInit() {
-
   }
-  async fetchProducts() {
-    await this.product.getAll().subscribe((e: any) => {
-      this.productData = e;
+
+  ngAfterViewInit() {
+    this.fetchData();
+    setTimeout(() => {
+      this.setSlidePosition();
     })
   }
-  async ngAfterViewInit() {
-    await this.setSlidePosition();
-    await this.fetchData().then(r => this.pageLoaded = true);
-    await this.fetchProducts().then(r => console.log("r"));
-  }
 
-
-
-  async fetchData() {
-    await this.productData.map((e: any) => {
-      switch (e.categoryID) {
-        case 5:
-          this.filteredProducts[0].push(e);
-          break;
-        case 15:
-          this.filteredProducts[1].push(e);
-          break;
-        case 10:
-          this.filteredProducts[2].push(e);
-          break;
-        case 20:
-          this.filteredProducts[3].push(e);
-          break;
-      }
-    });
-    this.filteredProducts[0] = this.filteredProducts[0].slice(0, 8);
-    this.filteredProducts[1] = this.filteredProducts[1].slice(0, 8);
-    this.filteredProducts[2] = this.filteredProducts[2].slice(0, 8);
-    this.filteredProducts[3] = this.filteredProducts[3].slice(0, 8);
-    console.log(this.filteredProducts);
+  fetchData() {
+    this.product.getAll().subscribe((e: any) => {
+      e.map((e: any) => {
+        switch (e.categoryID) {
+          case 5:
+            this.filteredProducts[0].push(e);
+            break;
+          case 15:
+            this.filteredProducts[1].push(e);
+            break;
+          case 10:
+            this.filteredProducts[2].push(e);
+            break;
+          case 20:
+            this.filteredProducts[3].push(e);
+            break;
+        }
+      });
+      this.filteredProducts[0] = this.filteredProducts[0].slice(0, 8);
+      this.filteredProducts[1] = this.filteredProducts[1].slice(0, 8);
+      this.filteredProducts[2] = this.filteredProducts[2].slice(0, 8);
+      this.filteredProducts[3] = this.filteredProducts[3].slice(0, 8);
+    })
   }
 
   selectButton(e: any) {

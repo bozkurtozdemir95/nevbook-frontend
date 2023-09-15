@@ -1,1 +1,80 @@
-<div></div>
+<div class="checkout">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 billing">
+        <h3>Billing Details</h3>
+        <form action="#" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="custom-input">
+                <label>Name *</label>
+                <input formControlName="name_on_card" type="text" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="custom-input">
+                <label>City *</label>
+                <input formControlName="city" type="text" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="custom-input">
+                <label>Province *</label>
+                <input formControlName="province" type="text" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="custom-input">
+                <label>ZIP Code *</label>
+                <input formControlName="zip_code" type="text" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="custom-input">
+                <label>Address *</label>
+                <input formControlName="address" type="text" required>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <aside class="col-lg-4">
+        <div class="summary">
+          <h3>Your Order</h3>
+          <table class="table table-borderless">
+            <thead>
+            <tr>
+              <th>Product</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let item of cart.items">
+              <td>{{item.name}}</td>
+              <td class="price">{{item.price | currency:'MKD': 'symbol-narrow': '3.0-1' }} x{{item.quantity}}</td>
+            </tr>
+            <tr>
+              <td>Shipping:</td>
+              <td>Free shipping</td>
+            </tr>
+            <tr class="summary-subtotal">
+              <td class="fw-semibold fs-5">Total:</td>
+              <td class="fw-semibold fs-5">{{cart.total | currency:'MKD': 'symbol-narrow': '3.0-1' }}</td>
+            </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="custom-button bordered">
+            <span class="btn-text">Place Order</span>
+            <span class="btn-text-hover" (click)="makePayment(cart.total)">Proceed to Checkout</span>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</div>

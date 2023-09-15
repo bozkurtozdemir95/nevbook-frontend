@@ -1,0 +1,20 @@
+import {Injectable} from '@angular/core';
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  api = environment.serverURL;
+
+  constructor(private http: HttpClient) {
+  }
+
+  importUsers(data: any) {
+    return this.http.post(this.api + '/user/import', data).subscribe((e: any) => {
+      console.log(e);
+    });
+  }
+}

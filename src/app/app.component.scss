@@ -1,7 +1,8 @@
 @import "../assets/theme/variables";
 
 .page-container {
-  padding-top: 87px;
+  padding-top: 117px;
+  min-height: 100vh;
 }
 
 #slide-top {
@@ -24,10 +25,3 @@
     height: 24px;
   }
 }
-
-@media only screen and (max-width: 992px) {
-  .page-container {
-    padding-top: 65px;
-  }
-}
-

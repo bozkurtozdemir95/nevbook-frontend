@@ -31,7 +31,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getCartItems();
-    console.log(this.langService.currentLang);
   }
 
   changeLang(key: string) {
@@ -50,7 +49,6 @@ export class HeaderComponent implements OnInit {
 
   sendToCart(){
     this.cartDropdown.close();
-    !this.auth.user && this.router.navigate(['profile']);
   }
 
 }

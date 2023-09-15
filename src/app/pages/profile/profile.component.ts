@@ -3,6 +3,8 @@ import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
 import {jsPDF} from 'jspdf';
 import autoTable from 'jspdf-autotable'
+import * as XLSX from 'xlsx';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-profile',
@@ -10,31 +12,12 @@ import autoTable from 'jspdf-autotable'
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-  // @ts-ignore
-  @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
-
-  orders = [
-    {id: '8315', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '8316', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '8317', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '8325', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '8345', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '8315', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '7315', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-    {id: '9315', date: 'June 30, 2023', status: 'Processing', total: 15000, items: 4, customer: {}},
-  ];
-
-
   showLogin = true;
 
-  selectedOrder = null;
 
-  constructor(public auth: AuthService, public router: Router) {
-  }
+  userTable = null;
 
-
-  changeForm() {
-    this.showLogin = !this.showLogin;
+  constructor(public auth: AuthService, public router: Router, private userService: UserService) {
   }
 
   logout() {
@@ -43,27 +26,30 @@ export class ProfileComponent {
     this.router.navigate(['home']);
   }
 
-  viewOrder(id: any) {
-    this.selectedOrder = id;
+
+  onFileChange(ev: any) {
+    let workBook: any = null;
+    let jsonData = null;
+    const reader = new FileReader();
+    const file = ev.target.files[0];
+    reader.onload = (event) => {
+      const data = reader.result;
+      workBook = XLSX.read(data, {type: 'binary'});
+      jsonData = workBook.SheetNames.reduce((initial: any, name: any) => {
+        const sheet = workBook.Sheets[name];
+        initial[name] = XLSX.utils.sheet_to_json(sheet);
+        return initial;
+      }, {});
+
+      const key = Object.keys(jsonData)[0];
+      this.userTable = jsonData[key];
+      // @ts-ignore
+      //document.getElementById('output').innerHTML = dataString.slice(0, 300);
+    }
+    reader.readAsBinaryString(file);
   }
 
-  backToOrders() {
-    this.selectedOrder = null;
-  }
-
-
-  downloadAsPDF() {
-    const doc = new jsPDF('p', 'pt', 'letter');
-    let ordersToPrint = [];
-    const PDFbody: any = [];
-    this.orders.map(a => {
-      ordersToPrint = [a.id, a.date, a.status, a.total, a.items];
-      PDFbody.push(ordersToPrint);
-    })
-    autoTable(doc, {
-      head: [['Order', 'Date', 'Status', 'Total']],
-      body: PDFbody,
-    });
-    doc.save();
+  importUsers() {
+    this.userService.importUsers(this.userTable)
   }
 }

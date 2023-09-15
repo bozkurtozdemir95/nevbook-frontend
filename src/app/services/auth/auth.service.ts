@@ -18,7 +18,7 @@ export class User {
 export class AuthService {
 
   user: any;
-  isAdmin = true;
+  isAdmin = false;
 
   constructor(private http: HttpClient, private cartService: CartService) {
   }

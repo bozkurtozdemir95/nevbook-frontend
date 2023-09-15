@@ -34,6 +34,7 @@ export class ProductsComponent implements OnInit {
   async fetchData() {
     await this.category.getAll().subscribe((e: any) => {
       this.categories = e;
+      console.log(this.categories);
     });
     await this.product.getAll().subscribe((e: any) => {
       this.allProducts = e;
