@@ -83,5 +83,32 @@
   "promo_codes": "Промо код",
   "logout": "Одјави се",
   "register": "Регистрирај се",
-  "name": "Име"
+  "name": "Име",
+  "profile": "Профил",
+  "complete_order": "Заврши нарачка",
+  "completed": "Завршено",
+  "processing": "Процесирање",
+  "type": "Тип",
+  "admin": "Aдмин",
+  "user": "Корисник",
+  "import_users": "Внеси корисници",
+  "choose_file": "Избери датотека",
+  "id": "ID",
+  "photo": "Слика",
+  "export_xlsx": "Експортирај XLSX",
+  "sort_by_date": "Сортирај по датум",
+  "latest": "Најново",
+  "oldest": "Најстари",
+  "in_stock": "Во продажба",
+  "address": "Aдреса",
+  "zip_code": "Поштенски код",
+  "province": "Населено место",
+  "city": "Град",
+  "your_order": "Вашата нарачка",
+  "place_order": "Направи нарачка",
+  "proceed_to_checkout": "Продолжи кон плаќање",
+  "choose_category": "Избери категорија",
+  "choose_category_text": "Изберете категорија за да продолжите..."
+}
+
 }
