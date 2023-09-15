@@ -67,7 +67,7 @@
                 <div class="cart-bottom" *ngIf="cartService.items.length">
                   <div class="total">
                     <div class="title">{{'total' | translate}}:</div>
-                    <div class="price">{{cartService.total  | number: '3.0-1'}}</div>
+                    <div class="price fw-semibold">{{cartService.total  | currency:'MKD': 'symbol-narrow':'3.0-1'}}</div>
                   </div>
                   <div class="buttons">
                     <button class="custom-button" routerLink="/cart"

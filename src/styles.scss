@@ -267,12 +267,12 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 
   .btn-text {
-    transition: all .25s ease 0s;
+    transition: all .15s ease 0s;
     opacity: 1;
   }
 
   .btn-text-hover {
-    transition: all .25s ease 0s;
+    transition: all .15s ease 0s;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -282,10 +282,14 @@ h1, h2, h3, h4, h5, h6 {
 
   &.md {
     padding: $space;
+    font-size: 13px;
+    height: 36px;
   }
 
   &.sm {
     padding: $space / 2;
+    font-size: 11px;
+    height: 32px;
   }
 
   &:not([disabled]) {
@@ -375,6 +379,34 @@ h1, h2, h3, h4, h5, h6 {
       background: $success-dark;
     }
   }
+}
+
+.badge {
+  padding: 2px 10px;
+  color: #fff;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: max-content;
+  font-weight: 400;
+
+  &.success {
+    background: $success;
+  }
+
+  &.processing {
+    background: $warning;
+  }
+}
+
+.subpage-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $space * 2;
+  margin-bottom: $space * 2;
 }
 
 .primary-button {

@@ -39,6 +39,21 @@
                     <div id="output"></div>
 
                     <button (click)="importUsers()">imppooort</button>
+                    <table class="table table-borderless">
+                      <thead>
+                      <tr>
+                        <th scope="col" translate>name</th>
+                        <th scope="col" translate>email</th>
+                        <th scope="col" translate>type</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let user of users">
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.type}}</td>
+                      </tbody>
+                    </table>
                   </ng-template>
                 </li>
                 <li ngbNavItem>

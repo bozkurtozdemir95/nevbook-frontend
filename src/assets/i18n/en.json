@@ -84,5 +84,8 @@
   "logout": "Logout",
   "register": "Register",
   "name": "Name",
-  "profile": "Profile"
+  "profile": "Profile",
+  "complete_order": "Complete Order",
+  "completed": "Completed",
+  "processing": "Processing"
 }

@@ -1,49 +1,59 @@
-<button (click)="downloadAsPDF()" translate>export_pdf</button>
-<table class="table table-borderless" *ngIf="!selectedOrder" #pdfTable>
-  <thead>
-  <tr>
-    <th scope="col" translate>order</th>
-    <th scope="col" translate>date</th>
-    <th scope="col" translate>status</th>
-    <th scope="col" translate>total</th>
-    <th scope="col"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of orders">
-    <td>#{{item.id}}</td>
-    <td>{{item.date}}</td>
-    <td><div class="badge success">{{item.status}}</div></td>
-    <td>{{item.total}}</td>
-    <td class="link" (click)="viewOrder(8315)" translate>view</td>
+<div class="orders" *ngIf="!selectedOrder">
+  <div class="subpage-title">
+    <button class="custom-button md" (click)="downloadAsPDF()" translate>export_pdf</button>
+  </div>
+  <table class="table table-borderless" #pdfTable>
+    <thead>
+    <tr>
+      <th scope="col" translate>order</th>
+      <th scope="col" translate>date</th>
+      <th scope="col" translate>status</th>
+      <th scope="col" translate>total</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of orders">
+      <td>#{{item.id}}</td>
+      <td>{{item.created_at | date}}</td>
+      <td>
+        <div
+          class="badge {{item.shipped ? 'success' : 'processing'}}" translate>{{item.shipped ? 'completed' : 'processing'}}</div>
+      </td>
+      <td>{{item.total}}</td>
+      <td class="link" (click)="viewOrder(item.id)" translate>view</td>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 <div class="order-details" *ngIf="selectedOrder">
-  <button class="transparent-button" (click)="backToOrders()">
-    <app-icon [icon]="'arrow-left'"/>
-    {{"back" | translate}}
-  </button>
+  <div class="subpage-title">
+    <button class="transparent-button" (click)="backToOrders()">
+      <app-icon [icon]="'arrow-left'"/>
+      {{"back" | translate}}
+    </button>
+    <button class="custom-button md success" *ngIf="!selectedOrder.shipped" (click)="completeOrder(selectedOrder.id)" translate>complete_order</button>
+  </div>
   <ul>
     <li>
       <h6>Order ID</h6>
-      <span>#8315</span>
+      <span>#{{selectedOrder.id}}</span>
     </li>
     <li>
       <h6>Date</h6>
-      <span>June 30, 2023</span>
+      <span>{{selectedOrder.created_at | date}}</span>
     </li>
     <li>
       <h6 translate>email</h6>
-      <span>test@gmail.com</span>
+      <span>{{selectedOrder.email}}</span>
     </li>
     <li>
       <h6 translate>total</h6>
-      <span>15000 MKD</span>
+      <span>{{selectedOrder.total | currency:'MKD': 'symbol-narrow':'3.0-1'}}</span>
     </li>
     <li>
       <h6 translate>payment_method</h6>
-      <span>Cash on delivery</span>
+      <span>Credit Card (Stripe)</span>
     </li>
   </ul>
   <h4 translate>order_details</h4>
@@ -55,44 +65,34 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>A book x2</td>
-      <td>10000 MKD</td>
-    </tr>
-    <tr>
-      <td>A different book x3</td>
-      <td>6000 MKD</td>
+    <tr *ngFor="let item of selectedOrder.products">
+      <td>
+        <div class="product">
+          <img src="{{server}}/product/photo/{{item.photo}}" alt="NevBook">
+          <span> {{item.productName}}</span>
+          <span class="fw-semibold ml-1">x{{item.quantity}}</span>
+        </div>
+      </td>
+      <td>{{item.price | currency:'MKD': 'symbol-narrow':'3.0-1'}}</td>
     </tr>
     <tr>
       <td></td>
       <td></td>
-    </tr>
-    <tr>
-      <td translate>subtotal</td>
-      <td>16000 MKD</td>
-    </tr>
-    <tr>
-      <td>{{"discount" | translate}} (FINKY)</td>
-      <td>20%</td>
-    </tr>
-    <tr>
-      <td translate>payment_method</td>
-      <td>Cash on delivery</td>
     </tr>
     <tr>
       <td translate>total</td>
-      <td>12800 MKD</td>
+      <td>{{selectedOrder.total | currency:'MKD': 'symbol-narrow':'3.0-1'}}</td>
     </tr>
     </tbody>
   </table>
   <div class="bill mt-3">
     <h4 translate>billing_address</h4>
     <ul>
-      <li>Name on card</li>
-      <li>Aasdasdasdasd</li>
-      <li>Skopje</li>
-      <li>Skopje</li>
-      <li>0112</li>
+      <li>{{selectedOrder.name}}</li>
+      <li>{{selectedOrder.address}}</li>
+      <li>{{selectedOrder.city}}</li>
+      <li>{{selectedOrder.province}}</li>
+      <li>{{selectedOrder.zip_code}}</li>
     </ul>
   </div>
 </div>

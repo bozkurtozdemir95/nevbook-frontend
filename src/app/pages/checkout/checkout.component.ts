@@ -42,12 +42,18 @@ export class CheckoutComponent implements OnInit {
   }
 
   sendOrder() {
+    const products = [];
+    for (let i of this.cart.items) {
+      const obj = {quantity: i.quantity, productID: i.productID};
+      products.push(obj)
+    }
     this.checkoutForm.value.total = this.cart.total;
-    this.checkoutForm.value.products = this.cart.items;
+    this.checkoutForm.value.products = products;
     this.orderService.create(this.checkoutForm.value).subscribe(
       (result: any) => {
         this.toastr.success('Order created succesfully.');
         this.cart.clearCart();
+        this.router.navigate(['home'])
       },
       (error: any) => {
         this.toastr.error('There was an error with your order.');

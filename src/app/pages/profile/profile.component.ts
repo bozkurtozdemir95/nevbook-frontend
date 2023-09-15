@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
 import {jsPDF} from 'jspdf';
@@ -11,13 +11,21 @@ import {UserService} from "../../services/user.service";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
   showLogin = true;
-
+  users: any = [];
 
   userTable = null;
 
   constructor(public auth: AuthService, public router: Router, private userService: UserService) {
+  }
+
+
+  ngOnInit() {
+    this.userService.getAll().subscribe((e: any) => {
+      console.log(e);
+      this.users = e;
+    })
   }
 
   logout() {

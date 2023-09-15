@@ -17,4 +17,8 @@ export class UserService {
       console.log(e);
     });
   }
+
+  getAll() {
+    return this.http.get(this.api + '/user/get_all');
+  }
 }

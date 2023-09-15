@@ -7,18 +7,12 @@ import {HttpClient} from "@angular/common/http";
 })
 export class OrderService {
   api = environment.serverURL;
-  order = {
-    address: "adddress",
-    city: "hakkari",
-    province: "sadasd",
-    zip_code: 102,
-    name_on_card: "Deneme",
-    discount: 0,
-    total: 1950,
-    products: [{quantity: 0, productID: 1}, {quantity: 0, productID: 2}],
-  }
 
   constructor(private http: HttpClient) {
+  }
+
+  get(id: any) {
+    return this.http.get(this.api + '/order/get/' + id);
   }
 
   getAll() {
@@ -26,7 +20,10 @@ export class OrderService {
   }
 
   create(data: any) {
-    console.log("create")
     return this.http.post(this.api + '/order/create', data);
+  }
+
+  complete(id: any) {
+    return this.http.get(this.api + '/order/complete/' + id);
   }
 }

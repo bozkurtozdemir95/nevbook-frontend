@@ -1,0 +1,93 @@
+@import '../../../../../assets/theme/variables';
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+
+  .subpage-title{
+    justify-content: space-between;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: $space * 3;
+
+    li {
+      padding: $space;
+      margin-bottom: $space * 2;
+      text-align: center;
+      border-right: 1px solid $border-color;
+
+      &:last-child {
+        border: 0;
+      }
+
+      h6 {
+        font-family: $title-font;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: $space / 2;
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+
+  table {
+    .product {
+      display: flex;
+    }
+
+    img {
+      max-width: 50px;
+      margin-right: $space;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: $title-font;
+    margin-bottom: $space * 2;
+  }
+
+  .transparent-button {
+    color: $title;
+    display: flex;
+    font-weight: 600;
+    transition: $transition;
+    line-height: 20px;
+
+    ::ng-deep {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .bill {
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: $space $space * 2 $space * 2;
+      border: 2px dashed $border-color;
+
+      li {
+        border: 0;
+        margin: 0;
+        text-align: left;
+        padding: 5px;
+      }
+    }
+  }
+}
