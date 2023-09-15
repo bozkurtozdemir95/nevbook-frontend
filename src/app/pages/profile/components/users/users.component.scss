@@ -1,12 +1,32 @@
-.file-input{
+@import '../../../../../assets/theme/variables';
+
+.file-input {
   position: relative;
 
-  input{
+  input {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     opacity: 0;
+  }
+}
+
+.delete {
+  color: $text;
+  transition: .2s all;
+  margin-left: $space;
+  cursor: pointer;
+
+  app-icon {
+    ::ng-deep svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &:hover {
+    color: $primary;
   }
 }

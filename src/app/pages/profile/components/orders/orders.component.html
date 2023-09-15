@@ -32,7 +32,7 @@
       <app-icon [icon]="'arrow-left'"/>
       {{"back" | translate}}
     </button>
-    <button class="custom-button md success" *ngIf="!selectedOrder.shipped" (click)="completeOrder(selectedOrder.id)" translate>complete_order</button>
+    <button class="custom-button md success" *ngIf="!selectedOrder.shipped && auth.isAdmin" (click)="completeOrder(selectedOrder.id)" translate>complete_order</button>
   </div>
   <ul>
     <li>

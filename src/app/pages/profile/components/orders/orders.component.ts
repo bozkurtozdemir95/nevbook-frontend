@@ -5,6 +5,7 @@ import {OrderService} from "../../../../services/order.service";
 import {environment} from "../../../../../environments/environment";
 import {Router} from "@angular/router";
 import {Toastr} from "../../../../services/toastr.service";
+import {AuthService} from "../../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-orders',
@@ -20,6 +21,7 @@ export class OrdersComponent implements OnInit {
   orders: any = [];
 
   constructor(public orderService: OrderService, public router: Router,
+              public auth: AuthService,
               private toastr: Toastr) {
   }
 

@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   users: any = [];
 
   constructor(private userService: UserService, public router: Router,
+              public auth: AuthService,
               private toastr: Toastr) {
   }
 
@@ -75,4 +76,19 @@ export class UsersComponent implements OnInit {
   fileChoosed(e: any) {
     console.log(e.target.files[0].name);
   }
+
+  deleteUser(id: number) {
+    this.userService.delete(id).subscribe(
+      (result: any) => {
+        this.toastr.success('Users deleted successfully.');
+        setTimeout(() => {
+          this.getUsers();
+        }, 200)
+      },
+      (error: any) => {
+        this.toastr.error('User delete failed');
+      },
+    );
+  }
+
 }

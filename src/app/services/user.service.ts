@@ -19,7 +19,12 @@ export class UserService {
   getAll() {
     return this.http.get(this.api + '/user/get_all');
   }
+
   changeRole(id: number) {
     return this.http.get(this.api + '/user/change_role/' + id);
+  }
+
+  delete(id: number) {
+    return this.http.get(this.api + '/user/delete/' + id);
   }
 }

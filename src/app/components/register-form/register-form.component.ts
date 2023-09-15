@@ -33,13 +33,14 @@ export class RegisterFormComponent {
       (result: any) => {
         this.authService.user = result.user;
         localStorage.setItem('user', JSON.stringify(result.user));
+        window.location.reload();
       },
       (error: any) => {
         this.errors = error.error;
       },
       () => {
         this.registerForm.reset();
-        this.router.navigate(['profile']);
+        this.router.navigate(['login']);
       }
     );
   }
